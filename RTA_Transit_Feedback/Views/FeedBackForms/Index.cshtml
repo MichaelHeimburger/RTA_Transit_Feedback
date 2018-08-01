@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RTA_Transit_Feedback.FeedBackForm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FeedbackDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofRide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeofRide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Batch.TrackingNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customers.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeedbackDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofRide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeofRide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Batch.TrackingNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customers.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackID })
+        </td>
+    </tr>
+}
+
+</table>

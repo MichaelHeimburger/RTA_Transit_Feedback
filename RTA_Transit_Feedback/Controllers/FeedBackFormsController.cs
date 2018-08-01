@@ -6,118 +6,121 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
 {
-    public class CustomersController : Controller
+    public class FeedBackFormsController : Controller
     {
         private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
 
-        // GET: Customers
+        // GET: FeedBackForms
         public ActionResult Index()
         {
-            var customers = db.Customers.Include(c => c.state);
-            return View(customers.ToList());
+            var feedBackForm = db.FeedBackForm.Include(f => f.Batch).Include(f => f.Customers);
+            return View(feedBackForm.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: FeedBackForms/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = db.Customers.Find(id);
-            if (customers == null)
+            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+            if (feedBackForm == null)
             {
                 return HttpNotFound();
             }
-            return View(customers);
+            return View(feedBackForm);
         }
 
-        // GET: Customers/Create
+        // GET: FeedBackForms/Create
         public ActionResult Create()
         {
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode");
+            ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: FeedBackForms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,AddressL1,AddressL2,City,stateID,PhoneNum,Id,Zip")] Customers customers)
+        public ActionResult Create([Bind(Include = "FeedbackID,FeedbackDescription,DateofRide,TimeofRide,RouteName,VehNum,CustomerID,BatchID")] FeedBackForm feedBackForm)
         {
-            customers.Id = User.Identity.GetUserId();
+            //customers.Id = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customers);
+                db.FeedBackForm.Add(feedBackForm);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return RedirectToAction("Create", "Feedback");
+            //ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);
+            //ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", feedBackForm.CustomerID);
+            return View(feedBackForm);
         }
 
-        // GET: Customers/Edit/5
+        // GET: FeedBackForms/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = db.Customers.Find(id);
-            if (customers == null)
+            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+            if (feedBackForm == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return View(customers);
+            ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", feedBackForm.CustomerID);
+            return View(feedBackForm);
         }
 
-        // POST: Customers/Edit/5
+        // POST: FeedBackForms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,AddressL1,AddressL2,City,stateID,PhoneNum,Id,Zip")] Customers customers)
+        public ActionResult Edit([Bind(Include = "FeedbackID,FeedbackDescription,DateofRide,TimeofRide,RouteName,VehNum,CustomerID,BatchID")] FeedBackForm feedBackForm)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customers).State = EntityState.Modified;
+                db.Entry(feedBackForm).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return View(customers);
+            ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", feedBackForm.CustomerID);
+            return View(feedBackForm);
         }
 
-        // GET: Customers/Delete/5
+        // GET: FeedBackForms/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = db.Customers.Find(id);
-            if (customers == null)
+            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+            if (feedBackForm == null)
             {
                 return HttpNotFound();
             }
-            return View(customers);
+            return View(feedBackForm);
         }
 
-        // POST: Customers/Delete/5
+        // POST: FeedBackForms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customers customers = db.Customers.Find(id);
-            db.Customers.Remove(customers);
+            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+            db.FeedBackForm.Remove(feedBackForm);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

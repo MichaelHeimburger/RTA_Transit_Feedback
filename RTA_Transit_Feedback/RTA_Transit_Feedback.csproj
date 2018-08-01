@@ -198,6 +198,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\FeedBackFormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Customers.cs">
@@ -353,6 +354,11 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\FeedBackForms\Create.cshtml" />
+    <Content Include="Views\FeedBackForms\Delete.cshtml" />
+    <Content Include="Views\FeedBackForms\Details.cshtml" />
+    <Content Include="Views\FeedBackForms\Edit.cshtml" />
+    <Content Include="Views\FeedBackForms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
