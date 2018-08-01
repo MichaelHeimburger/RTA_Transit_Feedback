@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransitFeedbackAppDBv1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Batch">
+    <Key>
+      <PropertyRef Name="BatchID" />
+    </Key>
+    <Property Name="BatchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrackingNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressL1" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressL2" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="stateID" Type="int" />
+    <Property Name="PhoneNum" Type="nchar" MaxLength="10" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" />
+    <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FeedBackForm">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeedbackDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="DateofRide" Type="date" />
+    <Property Name="TimeofRide" Type="time" Precision="7" />
+    <Property Name="RouteName" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehNum" Type="nvarchar" MaxLength="10" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="BatchID" Type="int" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="stateID" />
+    </Key>
+    <Property Name="stateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stateCode" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="stateName" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Customers_state">
+    <End Role="state" Type="Self.state" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="state">
+        <PropertyRef Name="stateID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="stateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedBackForm_Batch">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="FeedBackForm" Type="Self.FeedBackForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchID" />
+      </Principal>
+      <Dependent Role="FeedBackForm">
+        <PropertyRef Name="BatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedBackForm_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="FeedBackForm" Type="Self.FeedBackForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="FeedBackForm">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransitFeedbackAppDBv1ModelStoreContainer">
+    <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBackForm" EntityType="Self.FeedBackForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="state" EntityType="Self.state" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Customers_state" Association="Self.FK_Customers_state">
+      <End Role="state" EntitySet="state" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedBackForm_Batch" Association="Self.FK_FeedBackForm_Batch">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="FeedBackForm" EntitySet="FeedBackForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedBackForm_Customers" Association="Self.FK_FeedBackForm_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="FeedBackForm" EntitySet="FeedBackForm" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

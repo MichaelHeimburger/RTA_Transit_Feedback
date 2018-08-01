@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransitFeedbackAppDBv1ModelStoreContainer" CdmEntityContainer="TransitFeedbackAppDBv1Entities1">
+    <EntitySetMapping Name="Batch">
+      <EntityTypeMapping TypeName="TransitFeedbackAppDBv1Model.Batch">
+        <MappingFragment StoreEntitySet="Batch">
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="TrackingNo" ColumnName="TrackingNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TransitFeedbackAppDBv1Model.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="AddressL1" ColumnName="AddressL1" />
+          <ScalarProperty Name="AddressL2" ColumnName="AddressL2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBackForm">
+      <EntityTypeMapping TypeName="TransitFeedbackAppDBv1Model.FeedBackForm">
+        <MappingFragment StoreEntitySet="FeedBackForm">
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+          <ScalarProperty Name="FeedbackDescription" ColumnName="FeedbackDescription" />
+          <ScalarProperty Name="DateofRide" ColumnName="DateofRide" />
+          <ScalarProperty Name="TimeofRide" ColumnName="TimeofRide" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="VehNum" ColumnName="VehNum" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="state">
+      <EntityTypeMapping TypeName="TransitFeedbackAppDBv1Model.state">
+        <MappingFragment StoreEntitySet="state">
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateCode" ColumnName="stateCode" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -13,10 +13,10 @@ namespace RTA_Transit_Feedback
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransitFeedbackAppDBv1Entities1 : DbContext
+    public partial class TransitFeedbackAppDBv1Entities : DbContext
     {
-        public TransitFeedbackAppDBv1Entities1()
-            : base("name=TransitFeedbackAppDBv1Entities1")
+        public TransitFeedbackAppDBv1Entities()
+            : base("name=TransitFeedbackAppDBv1Entities")
         {
         }
     
