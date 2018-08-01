@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
@@ -52,6 +53,10 @@ namespace RTA_Transit_Feedback.Controllers
         public ActionResult Create([Bind(Include = "FeedbackID,FeedbackDescription,DateofRide,TimeofRide,RouteName,VehNum,CustomerID,BatchID")] FeedBackForm feedBackForm)
         {
             //customers.Id = User.Identity.GetUserId();
+            var x = User.Identity.GetUserId();//gets id of current user logged in
+            var y = (from c in db.Customers where c.Id == x select c.CustomerID).ToList();
+            feedBackForm.CustomerID = y[0];
+
             if (ModelState.IsValid)
             {
                 db.FeedBackForm.Add(feedBackForm);
