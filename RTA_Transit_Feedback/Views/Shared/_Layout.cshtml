@@ -9,7 +9,7 @@
 
 </head>
 <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,18 +28,24 @@
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
-        </div>
-        <div class="allheadercontainer">
-            <img src="~/images/RTA.png" />
-            <div class="allheadernametext">
-                <p>Greater Cleveland Rta </p>
-                <p>Ride Happy Ride Free</p>
+        </div>*@
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Transit Feedback</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Feedback Form", "Index", "FeedBackForms")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+                <span class="navbar-text">
+                    Navbar text with an inline element
+                </span>
             </div>
-        </div>
-        <div class="lowerheadercontainer">
-
-
-        </div>
+        </nav>
         <div class="container body-content">
             @RenderBody()
             <hr />
