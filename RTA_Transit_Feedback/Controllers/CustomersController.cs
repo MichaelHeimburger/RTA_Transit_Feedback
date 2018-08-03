@@ -65,11 +65,11 @@ namespace RTA_Transit_Feedback.Controllers
             {
                 db.Customers.Add(customers);
                 db.SaveChanges();
-                return RedirectToAction("Create","Feedback");
+                return RedirectToAction("Create","FeedBackForms");
             }
 
             //ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return RedirectToAction("Create", "Feedback");
+            return RedirectToAction("Create", "FeedBackForms");
         }
 
         // GET: Customers/Edit/5
