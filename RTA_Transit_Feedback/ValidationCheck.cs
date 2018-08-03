@@ -12,9 +12,17 @@ namespace RTA_Transit_Feedback
 
         public bool HasCustomerInfo(string currentId)
         {
-            var currentCustomerClass = (from z in db.Customers where z.Id == currentId select z).ToList()[0];
+            bool value = false;
+            var customersdb = db.Customers;
+            foreach(Customers c in db.Customers)
+            {
+                if(c.Id == currentId)
+                {
+                    value = true;
+                }
+            }
 
-            return currentCustomerClass != null;
+            return value;
         }
     }
 }
