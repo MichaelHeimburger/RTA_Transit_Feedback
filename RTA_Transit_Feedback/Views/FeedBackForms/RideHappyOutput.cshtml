@@ -17,52 +17,58 @@
             position: relative;
             color: black;
             font-weight: 400;
-            width: 600px;
+            width: 480px;
         }
 
 
 
         .feedbackLn1 {
             position: absolute;
-            top: 177px;
-            left: 48px;
+            top: 113px;
+            left: 42px;
             text-align: left;
             overflow-wrap: break-word;
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 39px;
+            width: 400px;
         }
 
         .dateOfRide {
             position: absolute;
-            top: 393px;
-            left: 174px;
-            text-align: left;
-            font-size: 25px;
+            top: 278px;
+            left: 135px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
         }
 
 
         .timeOfRide {
             position: absolute;
-            top: 393px;
-            left: 447px;
-            text-align: left;
-            font-size: 25px;
+            top: 279px;
+            left: 345px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
         }
 
         .routeNameNumber {
             position: absolute;
-            top: 447px;
-            left: 247px;
-            text-align: left;
-            font-size: 25px;
+            top: 316px;
+            left: 249px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
         }
 
         .busRapidNumber {
             position: absolute;
-            top: 499px;
-            left: 224px;
+            top: 354px;
+            left: 262px;
             text-align: left;
-            font-size: 25px;
+            font-size: 17px;
+            font-weight: 600;
         }
 
         .riderName {
@@ -132,9 +138,9 @@
 
     <div class="container">
         <div class="rideHappyCard">
-            <img src="../../Images/RideHappy.jpg" style="width: 600px; z-index:-1; border: dashed 1px;">
+            <img src="../../Images/RideHappy.jpg" style="width: 442px; z-index:-1; border: dashed 1px;">
         </div>
-        <div class="feedbackLn1">I was 30 minutes late because of Red Line construction. May I have a free ticket, please?</div>
+        <div class="feedbackLn1">I was 30 minutes late because of Red Line construction. May I have a free ticket, please? Lorem ipsum, lorem ipsum. Etc etc etc etc etc etc etc etc etc bladhey etc etc etc bladhey etc etc etc bladhey etc etc etc etc etc etc etc bladhey blah.</div>
         <div class="dateOfRide">02/04/2018</div>
         <div class="timeOfRide">9:00 AM</div>
         <div class="routeNameNumber">Red Line</div>
@@ -147,6 +153,6 @@
         <div class="riderPhone">512-987-6543</div>
         <div class="riderEmail">joeschome@email.org</div>
     </div>
-    <p>@Html.ActionLink("Print", "Print", "Customer")</p>
+    <p>@Html.ActionLink("Print", "Print", "FeedbackForms")</p>
 
 </body>
