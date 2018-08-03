@@ -16,7 +16,7 @@ namespace RTA_Transit_Feedback
     public partial class TransitFeedbackAppDBv1Entities : DbContext
     {
         public TransitFeedbackAppDBv1Entities()
-            : base("name=TransitFeedbackAppDBv1Entities")
+            : base("name=TransitFeedbackAppDBv1Entities1")
         {
         }
     
@@ -29,5 +29,10 @@ namespace RTA_Transit_Feedback
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<FeedBackForm> FeedBackForm { get; set; }
         public virtual DbSet<state> state { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
     }
 }

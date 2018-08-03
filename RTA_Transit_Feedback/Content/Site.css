@@ -50,3 +50,10 @@ textarea {
 nav a {
     color: white;
 }
+.undernavdiv {
+    width: 100%;
+    height:10px;
+    background-color: lightskyblue;
+    margin-bottom: 5px;
+   box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5)
+}

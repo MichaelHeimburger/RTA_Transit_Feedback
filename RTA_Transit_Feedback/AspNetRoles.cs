@@ -12,28 +12,18 @@ namespace RTA_Transit_Feedback
     using System;
     using System.Collections.Generic;
     
-    public partial class Customers
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public AspNetRoles()
         {
-            this.FeedBackForm = new HashSet<FeedBackForm>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
-        public int CustomerID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string AddressL1 { get; set; }
-        public string AddressL2 { get; set; }
-        public string City { get; set; }
-        public Nullable<int> stateID { get; set; }
-        public string PhoneNum { get; set; }
         public string Id { get; set; }
-        public string Zip { get; set; }
+        public string Name { get; set; }
     
-        public virtual state state { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FeedBackForm> FeedBackForm { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }
