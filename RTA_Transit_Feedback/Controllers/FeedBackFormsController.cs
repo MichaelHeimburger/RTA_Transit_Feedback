@@ -18,31 +18,55 @@ namespace RTA_Transit_Feedback.Controllers
         // GET: FeedBackForms
         public ActionResult Index()
         {
+            if (User.IsInRole("Admin"))
+            {
             var feedBackForm = db.FeedBackForm.Include(f => f.Batch).Include(f => f.Customers);
             return View(feedBackForm.ToList());
+            }
+                    return RedirectToAction("Index", "Home");
+
+
         }
 
         // GET: FeedBackForms/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (User.IsInRole("Admin"))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+                if (feedBackForm == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(feedBackForm);
             }
-            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
-            if (feedBackForm == null)
-            {
-                return HttpNotFound();
-            }
-            return View(feedBackForm);
+                return RedirectToAction("Index", "Home");
+            
+
         }
 
         // GET: FeedBackForms/Create
         public ActionResult Create()
         {
-            ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
-            return View();
+            var validationCheck = new ValidationCheck();
+            var currentUserId = User.Identity.GetUserId();
+            if(currentUserId !=null)
+            {
+
+        
+                 if (validationCheck.HasCustomerInfo(currentUserId))
+                 {
+                 ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
+                 ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
+                 return View();
+                 }
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
         // POST: FeedBackForms/Create
