@@ -154,6 +154,11 @@ namespace RTA_Transit_Feedback.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult RideHappyOutput()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

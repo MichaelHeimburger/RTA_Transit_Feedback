@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "RideHappyOutput";
+}
+
+@*<h2>RideHappyOutput</h2>*@
+
+<head>
+    <style>
+
+
+        p {
+            font-size: 17px;
+        }
+
+        .container {
+            position: relative;
+            color: black;
+            font-weight: 400;
+            width: 600px;
+        }
+
+
+
+        .feedbackLn1 {
+            position: absolute;
+            top: 177px;
+            left: 48px;
+            text-align: left;
+            overflow-wrap: break-word;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .dateOfRide {
+            position: absolute;
+            top: 393px;
+            left: 174px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+
+        .timeOfRide {
+            position: absolute;
+            top: 393px;
+            left: 447px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .routeNameNumber {
+            position: absolute;
+            top: 447px;
+            left: 247px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .busRapidNumber {
+            position: absolute;
+            top: 499px;
+            left: 224px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderName {
+            position: absolute;
+            top: 552px;
+            left: 120px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderAddress {
+            position: absolute;
+            top: 605px;
+            left: 137px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderCity {
+            position: absolute;
+            top: 660px;
+            left: 94px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderState {
+            position: absolute;
+            top: 715px;
+            left: 109px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderZip {
+            position: absolute;
+            top: 715px;
+            left: 370px;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .riderPhone {
+            position: absolute;
+            top: 767px;
+            left: 136px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .riderEmail {
+            position: absolute;
+            top: 775px;
+            left: 416px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="rideHappyCard">
+            <img src="../../Images/RideHappy.jpg" style="width: 600px; z-index:-1; border: dashed 1px;">
+        </div>
+        <div class="feedbackLn1">I was 30 minutes late because of Red Line construction. May I have a free ticket, please?</div>
+        <div class="dateOfRide">02/04/2018</div>
+        <div class="timeOfRide">9:00 AM</div>
+        <div class="routeNameNumber">Red Line</div>
+        <div class="busRapidNumber">4201</div>
+        <div class="riderName">Mike H.</div>
+        <div class="riderAddress">123 Elm St.</div>
+        <div class="riderCity">Nashville</div>
+        <div class="riderState">TN</div>
+        <div class="riderZip">54321</div>
+        <div class="riderPhone">512-987-6543</div>
+        <div class="riderEmail">joeschome@email.org</div>
+    </div>
+    <p>@Html.ActionLink("Print", "Print", "Customer")</p>
+
+</body>
