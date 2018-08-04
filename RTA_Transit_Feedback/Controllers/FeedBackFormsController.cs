@@ -155,14 +155,48 @@ namespace RTA_Transit_Feedback.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult RideHappyOutput()
+        public ActionResult RideHappyOutput(int? id)
         {
-            return View();
+            if (User.IsInRole("Admin"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+                if (feedBackForm == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(feedBackForm);
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
-        public ActionResult Print()
+
+        //public ActionResult RideHappyOutput()
+        //{
+        //    return View();
+        //}
+
+        //Broken Here -- PDF Rendering not pulling views
+
+        public ActionResult Print(int? id)
         {
-            return new ActionAsPdf("RideHappyOutput");
+            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+            if (feedBackForm == null)
+            {
+                return HttpNotFound();
+            }
+            return new ActionAsPdf("RideHappyOutput", feedBackForm.FeedbackID);
+            //return new ActionAsPdf("RideHappyOutput");
+        }
+
+        public ActionResult PrintViewToPdf()
+        {
+            var report = new ActionAsPdf("RideHappyOutput");
+            return report;
         }
 
         protected override void Dispose(bool disposing)
