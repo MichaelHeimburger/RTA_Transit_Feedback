@@ -59,9 +59,10 @@
             @Html.DisplayFor(modelItem => item.Customers.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FeedbackID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.FeedbackID }) |
+            @Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = item.FeedbackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackID })
         </td>
     </tr>
 }

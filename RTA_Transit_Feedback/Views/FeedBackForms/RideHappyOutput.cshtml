@@ -72,19 +72,37 @@
             font-weight: 600;
         }
 
-        .riderName {
+        .riderFname {
             position: absolute;
             top: 393px;
-            left: 225px;
-            text-align: center;
+            left: 204px;
+            text-align: right;
             font-size: 17px;
             font-weight: 600;
         }
 
-        .riderAddress {
+        .riderLname {
+            position: absolute;
+            top: 393px;
+            left: 231px;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .riderAddressLn1 {
             position: absolute;
             top: 432px;
-            left: 98px;
+            left: 203px;
+            text-align: right;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .riderAddressLn2 {
+            position: absolute;
+            top: 432px;
+            left: 269px;
             text-align: left;
             font-size: 17px;
             font-weight: 600;
@@ -144,19 +162,28 @@
         </div>
         <div class="feedbackLn1">@Html.DisplayFor(model => model.FeedbackDescription)</div>
         <div class="dateOfRide">@Html.DisplayFor(model => model.DateofRide)</div>
+
+        @*<div class="dateOfRide">@Model.DateofRide.ToString("MM-dd-yyyy")</div>*@
+
+        @*<div>@String.Format("dd-MMM-yyyy", Model.DateofRide)</div>*@
+
+
+
         <div class="timeOfRide">@Html.DisplayFor(model => model.TimeofRide)</div>
         <div class="routeNameNumber">@Html.DisplayFor(model => model.RouteName)</div>
         <div class="busRapidNumber">@Html.DisplayFor(model => model.VehNum)</div>
-        <div class="riderName">Mike H.</div>
-        <div class="riderAddress">123 Elm St.</div>
-        <div class="riderCity">Nashville</div>
-        <div class="riderState">TN</div>
-        <div class="riderZip">54321</div>
-        <div class="riderPhone">512-987-6543</div>
-        <div class="riderEmail">joeschome@email.org</div>
+        <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName)</div>
+        <div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>
+        <div class="riderAddressLn1">@Html.DisplayFor(model => model.Customers.AddressL1)</div>
+        <div class="riderAddressLn2">@Html.DisplayFor(model => model.Customers.AddressL2)</div>
+        <div class="riderCity">@Html.DisplayFor(model => model.Customers.City)</div>
+        <div class="riderState">@Html.DisplayFor(model => model.Customers.state.stateName)</div>
+        <div class="riderZip">@Html.DisplayFor(model => model.Customers.Zip)</div>
+        <div class="riderPhone">@Html.DisplayFor(model => model.Customers.PhoneNum)</div>
+        <div class="riderEmail">@Html.DisplayFor(model => model.Customers.AspNetUsers.Email)</div>
     </div>
     @*<p>@Html.ActionLink("Print", "Print", "RideHappyOutput", new { id = Model.FeedbackID })</p>*@
-    <p>@Html.ActionLink("Print", "PrintViewToPdf", "FeedBackForms")</p>
+    <p>@Html.ActionLink("Print", "Print")</p>
 
 
 </body>

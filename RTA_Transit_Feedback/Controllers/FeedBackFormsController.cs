@@ -155,7 +155,7 @@ namespace RTA_Transit_Feedback.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult RideHappyOutput(int? id)
+        public ActionResult RideHappyOutput(int? id) //* Outputs Ride Happy PDF for specific Feedback ID *//
         {
             if (User.IsInRole("Admin"))
             {
@@ -168,36 +168,14 @@ namespace RTA_Transit_Feedback.Controllers
                 {
                     return HttpNotFound();
                 }
-                return View(feedBackForm);
+                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
             }
             return RedirectToAction("Index", "Home");
 
         }
 
 
-        //public ActionResult RideHappyOutput()
-        //{
-        //    return View();
-        //}
 
-        //Broken Here -- PDF Rendering not pulling views
-
-        public ActionResult Print(int? id)
-        {
-            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
-            if (feedBackForm == null)
-            {
-                return HttpNotFound();
-            }
-            return new ActionAsPdf("RideHappyOutput", feedBackForm.FeedbackID);
-            //return new ActionAsPdf("RideHappyOutput");
-        }
-
-        public ActionResult PrintViewToPdf()
-        {
-            var report = new ActionAsPdf("RideHappyOutput");
-            return report;
-        }
 
         protected override void Dispose(bool disposing)
         {
