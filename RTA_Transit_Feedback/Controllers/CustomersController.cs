@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Rotativa;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
@@ -16,11 +17,11 @@ namespace RTA_Transit_Feedback.Controllers
         private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
 
         // GET: Customers
-        public ActionResult Index()
-        {
-            var customers = db.Customers.Include(c => c.state);
-            return View(customers.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    var customers = db.Customers.Include(c => c.state);
+        //    return View(customers.ToList());
+        //}
 
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
@@ -40,9 +41,20 @@ namespace RTA_Transit_Feedback.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode");
-            return View();
+            var validationCheck = new ValidationCheck();
+            var currentUserId = User.Identity.GetUserId();
+            if (currentUserId != null)
+            {
+                if (validationCheck.HasCustomerInfo(currentUserId) == false)
+                {
+                    ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode");
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
+
+
 
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -56,11 +68,12 @@ namespace RTA_Transit_Feedback.Controllers
             {
                 db.Customers.Add(customers);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create","FeedbackForms");
             }
 
-            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return RedirectToAction("Create", "Feedback");
+            //ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
+            return RedirectToAction("Create", "FeedbackForms");
+
         }
 
         // GET: Customers/Edit/5
@@ -93,7 +106,7 @@ namespace RTA_Transit_Feedback.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
-            return View(customers);
+            return RedirectToAction("Create", "FeedBackForms");
         }
 
         // GET: Customers/Delete/5

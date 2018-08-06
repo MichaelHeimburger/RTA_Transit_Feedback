@@ -7,7 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Rotativa;
 using RTA_Transit_Feedback;
+using RTA_Transit_Feedback.Models;
 
 namespace RTA_Transit_Feedback.Controllers
 {
@@ -16,33 +18,76 @@ namespace RTA_Transit_Feedback.Controllers
         private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
 
         // GET: FeedBackForms
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(FeedBackRelayViewModel x)
+        {
+            Batch newBatch = new Batch();
+            db.Batch.Add(newBatch);
+            db.SaveChanges();
+            foreach(FeedBackForm form in x.Forms)
+            {
+                var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
+                changedform.BatchID = newBatch.BatchID;
+                db.Entry(changedform).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+           return View(x);
+        }
         public ActionResult Index()
         {
-            var feedBackForm = db.FeedBackForm.Include(f => f.Batch).Include(f => f.Customers);
-            return View(feedBackForm.ToList());
+            
+            if (User.IsInRole("Admin"))
+            {
+                FeedBackRelayViewModel x = new FeedBackRelayViewModel();
+                x.Forms = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); //gets all the forms that have not been batched and assigns them to the viewmodel
+                x.BatchAll = false; // initlaizeing the batchall variable in the viewmodel
+
+                return View(x);
+            }
+                    return RedirectToAction("Index", "Home");
         }
 
         // GET: FeedBackForms/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (User.IsInRole("Admin"))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+                if (feedBackForm == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(feedBackForm);
             }
-            FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
-            if (feedBackForm == null)
-            {
-                return HttpNotFound();
-            }
-            return View(feedBackForm);
+                return RedirectToAction("Index", "Home");
+            
+
         }
 
         // GET: FeedBackForms/Create
         public ActionResult Create()
         {
-            ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
-            return View();
+            var validationCheck = new ValidationCheck();
+            var currentUserId = User.Identity.GetUserId();
+            if(currentUserId !=null)
+            {
+
+        
+                 if (validationCheck.HasCustomerInfo(currentUserId))
+                 {
+                 ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
+                 ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
+                 return View();
+                 }
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
         // POST: FeedBackForms/Create
@@ -129,6 +174,28 @@ namespace RTA_Transit_Feedback.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult RideHappyOutput(int? id) //* Outputs Ride Happy PDF for specific Feedback ID *//
+        {
+            if (User.IsInRole("Admin"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+                if (feedBackForm == null)
+                {
+                    return HttpNotFound();
+                }
+                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
+            }
+            return RedirectToAction("Index", "Home");
+
+        }
+
+
+
 
         protected override void Dispose(bool disposing)
         {

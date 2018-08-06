@@ -34,5 +34,6 @@ namespace RTA_Transit_Feedback
         public virtual state state { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FeedBackForm> FeedBackForm { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

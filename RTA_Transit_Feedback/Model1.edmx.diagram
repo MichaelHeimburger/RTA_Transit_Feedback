@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="298cc9cbf9c242259e7731fca34058c2" Name="Diagram1">
+      <Diagram DiagramId="298cc9cbf9c242259e7731fca34058c2" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.Batch" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.Customers" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.FeedBackForm" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
@@ -12,6 +12,15 @@
         <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_FeedBackForm_Batch" ManuallyRouted="false" />
         <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_Customers_state" ManuallyRouted="false" />
         <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_FeedBackForm_Customers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.C__MigrationHistory" Width="1.5" PointX="8.375" PointY="5.75" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetRoles" Width="1.5" PointX="3.75" PointY="6" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUserClaims" Width="1.5" PointX="3" PointY="11.625" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUserLogins" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUsers" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_Customers_AspNetUsers" />
+        <AssociationConnector Association="TransitFeedbackAppDBv1Model.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

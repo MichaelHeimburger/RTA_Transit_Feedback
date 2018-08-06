@@ -16,7 +16,6 @@ namespace RTA_Transit_Feedback.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
