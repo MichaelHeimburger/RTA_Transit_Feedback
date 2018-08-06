@@ -4,6 +4,10 @@
     ViewBag.Title = "RideHappyOutput";
 }
 
+@{
+    Layout = null;
+}
+
 @*<h2>RideHappyOutput</h2>*@
 
 <head>
@@ -172,8 +176,8 @@
         <div class="timeOfRide">@Html.DisplayFor(model => model.TimeofRide)</div>
         <div class="routeNameNumber">@Html.DisplayFor(model => model.RouteName)</div>
         <div class="busRapidNumber">@Html.DisplayFor(model => model.VehNum)</div>
-        <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName)</div>
-        <div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>
+        <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName) @Html.DisplayFor(model => model.Customers.LastName)</div>
+        @*<div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>*@
         <div class="riderAddressLn1">@Html.DisplayFor(model => model.Customers.AddressL1)</div>
         <div class="riderAddressLn2">@Html.DisplayFor(model => model.Customers.AddressL2)</div>
         <div class="riderCity">@Html.DisplayFor(model => model.Customers.City)</div>

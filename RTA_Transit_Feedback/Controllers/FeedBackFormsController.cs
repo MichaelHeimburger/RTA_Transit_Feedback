@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Rotativa;
+using Rotativa.Options;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
@@ -168,7 +169,13 @@ namespace RTA_Transit_Feedback.Controllers
                 {
                     return HttpNotFound();
                 }
-                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
+                return new ViewAsPdf("RideHappyOutput", feedBackForm)
+                {
+                    PageOrientation = Orientation.Portrait,
+                    PageWidth = 90,
+                    PageHeight = 152.4
+                };
+                    
             }
             return RedirectToAction("Index", "Home");
 
