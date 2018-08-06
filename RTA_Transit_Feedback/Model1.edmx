@@ -84,7 +84,7 @@
           <Property Name="AddressL2" Type="nvarchar" MaxLength="50" />
           <Property Name="City" Type="nvarchar" MaxLength="50" />
           <Property Name="stateID" Type="int" />
-          <Property Name="PhoneNum" Type="nchar" MaxLength="10" />
+          <Property Name="PhoneNum" Type="nvarchar" MaxLength="50" />
           <Property Name="Id" Type="nvarchar" MaxLength="128" />
           <Property Name="Zip" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -109,18 +109,6 @@
           <Property Name="stateCode" Type="nchar" MaxLength="2" Nullable="false" />
           <Property Name="stateName" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Customers_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Customers">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customers_state">
           <End Role="state" Type="Self.state" Multiplicity="0..1" />
           <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
@@ -224,10 +212,6 @@
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FeedBackForm" EntityType="Self.FeedBackForm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="state" EntityType="Self.state" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Customers_AspNetUsers" Association="Self.FK_Customers_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Customers" EntitySet="Customers" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customers_state" Association="Self.FK_Customers_state">
             <End Role="state" EntitySet="state" />
             <End Role="Customers" EntitySet="Customers" />
@@ -280,7 +264,7 @@
           <Property Name="AddressL2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="stateID" Type="Int32" />
-          <Property Name="PhoneNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="state" Relationship="Self.FK_Customers_state" FromRole="Customers" ToRole="state" />

@@ -4,11 +4,15 @@
     ViewBag.Title = "RideHappyOutput";
 }
 
+@{ 
+    Layout = null;
+}
+
 @*<h2>RideHappyOutput</h2>*@
 
 <head>
     <style>
-
+            
 
         p {
             font-size: 17px;
@@ -19,6 +23,7 @@
             color: black;
             font-weight: 400;
             width: 480px;
+            font-family: 'Oswald', sans-serif;
         }
 
 
@@ -41,7 +46,7 @@
             left: 135px;
             text-align: center;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
 
@@ -51,7 +56,7 @@
             left: 345px;
             text-align: center;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .routeNameNumber {
@@ -60,7 +65,7 @@
             left: 249px;
             text-align: center;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .busRapidNumber {
@@ -69,88 +74,91 @@
             left: 262px;
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderFname {
+           
             position: absolute;
             top: 393px;
-            left: 204px;
+            left: 75px;
             text-align: right;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderLname {
+            
             position: absolute;
             top: 393px;
-            left: 231px;
+            /*left: 300px;*/
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderAddressLn1 {
             position: absolute;
             top: 432px;
-            left: 203px;
+            left: 85px;
             text-align: right;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderAddressLn2 {
             position: absolute;
             top: 432px;
-            left: 269px;
+            /*left: 269px;*/
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderCity {
             position: absolute;
             top: 471px;
-            left: 72px;
+            left: 60px;
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderState {
             position: absolute;
             top: 509px;
-            left: 80px;
+            left: 65px;
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderZip {
             position: absolute;
             top: 509px;
-            left: 271px;
+            left: 255px;
             text-align: left;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderPhone {
             position: absolute;
             top: 548px;
-            left: 106px;
+            left: 75px;
             text-align: center;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .riderEmail {
             position: absolute;
             top: 552px;
-            left: 309px;
+            left: 275px;
             text-align: center;
             font-size: 9px;
-            font-weight: 600;
+            font-weight: 400;
+            transform:scaleY(5);
         }
     </style>
 </head>
@@ -172,10 +180,10 @@
         <div class="timeOfRide">@Html.DisplayFor(model => model.TimeofRide)</div>
         <div class="routeNameNumber">@Html.DisplayFor(model => model.RouteName)</div>
         <div class="busRapidNumber">@Html.DisplayFor(model => model.VehNum)</div>
-        <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName)</div>
-        <div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>
-        <div class="riderAddressLn1">@Html.DisplayFor(model => model.Customers.AddressL1)</div>
-        <div class="riderAddressLn2">@Html.DisplayFor(model => model.Customers.AddressL2)</div>
+        <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName) @Html.DisplayFor(model => model.Customers.LastName)</div>
+        @*<div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>*@
+        <div class="riderAddressLn1">@Html.DisplayFor(model => model.Customers.AddressL1) @Html.DisplayFor(model => model.Customers.AddressL2)</div>
+        @*<div class="riderAddressLn2">@Html.DisplayFor(model => model.Customers.AddressL2)</div>*@
         <div class="riderCity">@Html.DisplayFor(model => model.Customers.City)</div>
         <div class="riderState">@Html.DisplayFor(model => model.Customers.state.stateName)</div>
         <div class="riderZip">@Html.DisplayFor(model => model.Customers.Zip)</div>
