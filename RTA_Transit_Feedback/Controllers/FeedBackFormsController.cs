@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Rotativa;
+using Rotativa.Options;
 using RTA_Transit_Feedback;
 using RTA_Transit_Feedback.Models;
 
@@ -162,6 +163,7 @@ namespace RTA_Transit_Feedback.Controllers
                 return HttpNotFound();
             }
             return View(feedBackForm);
+       
         }
 
         // POST: FeedBackForms/Delete/5
@@ -188,7 +190,18 @@ namespace RTA_Transit_Feedback.Controllers
                 {
                     return HttpNotFound();
                 }
-                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
+
+                return new ViewAsPdf("RideHappyOutput", feedBackForm)
+                {                    
+                    PageOrientation = Orientation.Portrait,
+                    //PageWidth = 88.9,
+                    //PageHeight = 152.4,
+                    PageMargins = new Margins(0, 0, 0, 0),
+                    //CustomSwitches = "--disable-smart-shrinking"
+                };
+
+
+
             }
             return RedirectToAction("Index", "Home");
 

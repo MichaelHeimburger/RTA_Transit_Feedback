@@ -19,11 +19,13 @@
         }
 
         .container {
-            position: relative;
+            position: absolute;
             color: black;
             font-weight: 400;
             width: 480px;
             font-family: 'Oswald', sans-serif;
+            left: 255px;
+            top: -4px;
         }
 
 
@@ -42,7 +44,7 @@
 
         .dateOfRide {
             position: absolute;
-            top: 278px;
+            top: 283px;
             left: 135px;
             text-align: center;
             font-size: 17px;
@@ -52,7 +54,7 @@
 
         .timeOfRide {
             position: absolute;
-            top: 279px;
+            top: 283px;
             left: 345px;
             text-align: center;
             font-size: 17px;
@@ -61,7 +63,7 @@
 
         .routeNameNumber {
             position: absolute;
-            top: 316px;
+            top: 326px;
             left: 249px;
             text-align: center;
             font-size: 17px;
@@ -70,7 +72,7 @@
 
         .busRapidNumber {
             position: absolute;
-            top: 354px;
+            top: 364px;
             left: 262px;
             text-align: left;
             font-size: 17px;
@@ -80,9 +82,9 @@
         .riderFname {
            
             position: absolute;
-            top: 393px;
-            left: 75px;
-            text-align: right;
+            top: 405px;
+            left: 90px;
+            text-align: left;
             font-size: 17px;
             font-weight: 400;
         }
@@ -90,18 +92,18 @@
         .riderLname {
             
             position: absolute;
-            top: 393px;
+            top: 395px;
             /*left: 300px;*/
             text-align: left;
-            font-size: 17px;
+            font-size: 20px;
             font-weight: 400;
         }
 
         .riderAddressLn1 {
             position: absolute;
-            top: 432px;
-            left: 85px;
-            text-align: right;
+            top: 445px;
+            left: 100px;
+            text-align: left;
             font-size: 17px;
             font-weight: 400;
         }
@@ -117,8 +119,8 @@
 
         .riderCity {
             position: absolute;
-            top: 471px;
-            left: 60px;
+            top: 484px;
+            left: 80px;
             text-align: left;
             font-size: 17px;
             font-weight: 400;
@@ -126,8 +128,8 @@
 
         .riderState {
             position: absolute;
-            top: 509px;
-            left: 65px;
+            top: 530px;
+            left: 80px;
             text-align: left;
             font-size: 17px;
             font-weight: 400;
@@ -135,8 +137,8 @@
 
         .riderZip {
             position: absolute;
-            top: 509px;
-            left: 255px;
+            top: 530px;
+            left: 269px;
             text-align: left;
             font-size: 17px;
             font-weight: 400;
@@ -144,8 +146,8 @@
 
         .riderPhone {
             position: absolute;
-            top: 548px;
-            left: 75px;
+            top: 568px;
+            left: 95px;
             text-align: center;
             font-size: 17px;
             font-weight: 400;
@@ -153,9 +155,9 @@
 
         .riderEmail {
             position: absolute;
-            top: 552px;
-            left: 275px;
-            text-align: center;
+            top: 568px;
+            left: 289px;
+            text-align: left;
             font-size: 9px;
             font-weight: 400;
             transform:scaleY(5);
@@ -165,9 +167,9 @@
 <body>
 
     <div class="container">
-        <div class="rideHappyCard">
+        @*<div class="rideHappyCard">
             <img src="../../Images/RideHappy.jpg" style="width: 442px; z-index:-1; border: dashed 1px;">
-        </div>
+        </div>*@
         <div class="feedbackLn1">@Html.DisplayFor(model => model.FeedbackDescription)</div>
         <div class="dateOfRide">@Html.DisplayFor(model => model.DateofRide)</div>
 
@@ -191,7 +193,7 @@
         <div class="riderEmail">@Html.DisplayFor(model => model.Customers.AspNetUsers.Email)</div>
     </div>
     @*<p>@Html.ActionLink("Print", "Print", "RideHappyOutput", new { id = Model.FeedbackID })</p>*@
-    <p>@Html.ActionLink("Print", "Print")</p>
+    @*<p>@Html.ActionLink("Print", "Print")</p>*@
 
 
 </body>
