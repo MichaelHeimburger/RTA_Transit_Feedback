@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using RTA_Transit_Feedback;
+using RTA_Transit_Feedback.Models;
 
 namespace RTA_Transit_Feedback.Controllers
 {
@@ -16,16 +17,35 @@ namespace RTA_Transit_Feedback.Controllers
         private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
 
         // GET: FeedBackForms
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(FeedBackRelayViewModel x)
+        {
+            Batch newBatch = new Batch();
+            db.Batch.Add(newBatch);
+            db.SaveChanges();
+            foreach(FeedBackForm form in x.Forms)
+            {
+                var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
+                changedform.BatchID = newBatch.BatchID;
+                db.Entry(changedform).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+           return View(x);
+        }
         public ActionResult Index()
         {
+            
             if (User.IsInRole("Admin"))
             {
-            var feedBackForm = db.FeedBackForm.Include(f => f.Batch).Include(f => f.Customers);
-            return View(feedBackForm.ToList());
+                FeedBackRelayViewModel x = new FeedBackRelayViewModel();
+                x.Forms = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); //gets all the forms that have not been batched and assigns them to the viewmodel
+                x.BatchAll = false; // initlaizeing the batchall variable in the viewmodel
+
+                return View(x);
             }
                     return RedirectToAction("Index", "Home");
-
-
         }
 
         // GET: FeedBackForms/Details/5

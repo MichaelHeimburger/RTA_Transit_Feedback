@@ -209,6 +209,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BatchesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\FeedBackFormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Models\BatchViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\FeedBackForm.cs" />
+    <Compile Include="Models\FeedBackRelayViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\StateViewModel.cs" />
@@ -379,6 +381,11 @@
     <Content Include="Views\FeedBackForms\Details.cshtml" />
     <Content Include="Views\FeedBackForms\Edit.cshtml" />
     <Content Include="Views\FeedBackForms\Index.cshtml" />
+    <Content Include="Views\Batches\Create.cshtml" />
+    <Content Include="Views\Batches\Delete.cshtml" />
+    <Content Include="Views\Batches\Details.cshtml" />
+    <Content Include="Views\Batches\Edit.cshtml" />
+    <Content Include="Views\Batches\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

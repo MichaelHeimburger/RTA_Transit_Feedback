@@ -1,69 +1,72 @@
-﻿@model IEnumerable<RTA_Transit_Feedback.FeedBackForm>
+﻿@model RTA_Transit_Feedback.Models.FeedBackRelayViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Edit</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FeedbackDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateofRide)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeofRide)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RouteName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Batch.TrackingNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customers.FirstName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeedbackDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateofRide)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeofRide)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RouteName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Batch.TrackingNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customers.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FeedbackID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackID })
-        </td>
-    </tr>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>table</h4>
+    <hr />
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BatchAll)
+            @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
+        </div>
+    </div>
+    @for (int i = 0; Model.Forms.Count > i; i++)
+    {
+
+        @Html.HiddenFor(model => Model.Forms[i].FeedbackID)
+        @Html.HiddenFor(model => Model.Forms[i].FeedbackDescription)
+        @Html.HiddenFor(model => Model.Forms[i].DateofRide)
+        @Html.HiddenFor(model => Model.Forms[i].TimeofRide)
+        @Html.HiddenFor(model => Model.Forms[i].RouteName)
+        @Html.HiddenFor(model => Model.Forms[i].VehNum)
+        @Html.HiddenFor(model => Model.Forms[i].CustomerID)
+        @Html.HiddenFor(model => Model.Forms[i].Batch)
+        @Html.HiddenFor(model => Model.Forms[i].BatchID)
+        @Html.HiddenFor(model => Model.Forms[i].Customers)
+
+
+
+        <div class="row">
+            <div class="col">
+                <p>@Url.Content(Model.Forms[i].TimeofRide.ToString())</p>
+            </div>
+            <div class="col">
+                <p>@Url.Content(Model.Forms[i].FeedbackID.ToString())</p>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col">
+                    @Html.CheckBoxFor(model => model.Forms[i].toBatch)
+                    @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
+                </div>
+            </div>
+
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
-</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

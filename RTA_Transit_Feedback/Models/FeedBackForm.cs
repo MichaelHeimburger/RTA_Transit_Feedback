@@ -11,6 +11,7 @@ namespace RTA_Transit_Feedback
 
     public partial class FeedBackForm
     {
+        public bool toBatch { get; set; }
 
     }
 
@@ -29,7 +30,6 @@ namespace RTA_Transit_Feedback
         public string VehNum { get; set; }
         public Nullable<int> CustomerID { get; set; }
         public Nullable<int> BatchID { get; set; }
-
         public virtual Batch Batch { get; set; }
         public virtual Customers Customers { get; set; }
     }
