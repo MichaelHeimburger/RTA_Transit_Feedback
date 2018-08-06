@@ -21,6 +21,7 @@ namespace RTA_Transit_Feedback
         [DisplayName("Feedback Description")]
         public string FeedbackDescription { get; set; }
         [DisplayName("Date of Ride")]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")] 
         public Nullable<System.DateTime> DateofRide { get; set; }
         [DisplayName("Time of Ride")]
         public Nullable<System.TimeSpan> TimeofRide { get; set; }

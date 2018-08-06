@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Rotativa;
 using RTA_Transit_Feedback;
 using RTA_Transit_Feedback.Models;
 
@@ -173,6 +174,28 @@ namespace RTA_Transit_Feedback.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult RideHappyOutput(int? id) //* Outputs Ride Happy PDF for specific Feedback ID *//
+        {
+            if (User.IsInRole("Admin"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FeedBackForm feedBackForm = db.FeedBackForm.Find(id);
+                if (feedBackForm == null)
+                {
+                    return HttpNotFound();
+                }
+                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
+            }
+            return RedirectToAction("Index", "Home");
+
+        }
+
+
+
 
         protected override void Dispose(bool disposing)
         {
