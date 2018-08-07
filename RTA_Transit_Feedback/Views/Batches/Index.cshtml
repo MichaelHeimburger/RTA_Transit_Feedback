@@ -20,7 +20,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))'>@Html.DisplayFor(modelItem => item.TrackingNo)</a>
+            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))'target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BatchID }) |
