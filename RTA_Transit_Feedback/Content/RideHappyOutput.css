@@ -3,20 +3,17 @@
 }
 
 .container {
-    position: absolute;
+    position: relative;
     color: black;
     font-weight: 400;
     width: 480px;
     font-family: 'Oswald', sans-serif;
-    left: 255px;
-    top: -4px;
+    left: 210px;
 }
-
-
 
 .feedbackLn1 {
     position: absolute;
-    top: 113px;
+    top: 65px;
     left: 42px;
     text-align: left;
     overflow-wrap: break-word;
@@ -28,18 +25,17 @@
 
 .dateOfRide {
     position: absolute;
-    top: 288px;
-    left: 155px;
+    top: 238px;
+    left: 135px;
     text-align: center;
     font-size: 17px;
     font-weight: 400;
 }
 
-
 .timeOfRide {
     position: absolute;
-    top: 288px;
-    left: 355px;
+    top: 238px;
+    left: 335px;
     text-align: center;
     font-size: 17px;
     font-weight: 400;
@@ -47,7 +43,7 @@
 
 .routeNameNumber {
     position: absolute;
-    top: 330px;
+    top: 280px;
     left: 250px;
     text-align: center;
     font-size: 17px;
@@ -56,7 +52,7 @@
 
 .busRapidNumber {
     position: absolute;
-    top: 370px;
+    top: 320px;
     left: 250px;
     text-align: left;
     font-size: 17px;
@@ -65,8 +61,8 @@
 
 .riderFname {
     position: absolute;
-    top: 410px;
-    left: 100px;
+    top: 360px;
+    left: 90px;
     text-align: left;
     font-size: 17px;
     font-weight: 400;
@@ -74,8 +70,8 @@
 
 .riderAddressLn1 {
     position: absolute;
-    top: 450px;
-    left: 110px;
+    top: 400px;
+    left: 100px;
     text-align: left;
     font-size: 17px;
     font-weight: 400;
@@ -83,8 +79,8 @@
 
 .riderCity {
     position: absolute;
-    top: 494px;
-    left: 85px;
+    top: 444px;
+    left: 75px;
     text-align: left;
     font-size: 17px;
     font-weight: 400;
@@ -92,8 +88,8 @@
 
 .riderState {
     position: absolute;
-    top: 535px;
-    left: 90px;
+    top: 485px;
+    left: 75px;
     text-align: left;
     font-size: 17px;
     font-weight: 400;
@@ -101,7 +97,7 @@
 
 .riderZip {
     position: absolute;
-    top: 535px;
+    top: 485px;
     left: 285px;
     text-align: left;
     font-size: 17px;
@@ -110,8 +106,8 @@
 
 .riderPhone {
     position: absolute;
-    top: 575px;
-    left: 100px;
+    top: 525px;
+    left: 80px;
     text-align: center;
     font-size: 17px;
     font-weight: 400;
@@ -119,10 +115,16 @@
 
 .riderEmail {
     position: absolute;
-    top: 575px;
+    top: 525px;
     left: 300px;
     text-align: left;
     font-size: 9px;
     font-weight: 400;
     transform: scaleY(5);
+}
+
+.breakhere {
+    display: block;
+    clear: both;
+    page-break-after: always;
 }
