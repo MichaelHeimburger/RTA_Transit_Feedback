@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Rotativa;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
@@ -19,17 +20,23 @@ namespace RTA_Transit_Feedback.Controllers
         {
             if(User.IsInRole("Admin"))
             {
-
-
-
             return View(db.Batch.ToList());
             }
-
-
             return RedirectToAction("Index", "Home");
-
         }
-
+        public ActionResult PrintBatchAction(int? id)
+        {
+           if(User.IsInRole("Admin"))
+            {
+                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).ToList();
+                return new ViewAsPdf("PrintBatch", batchedList);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult PrintBatch(List<FeedBackForm> batchedList)
+        {
+                return View(batchedList);
+        }
         //// GET: Batches/Details/5
         //public ActionResult Details(int? id)
         //{

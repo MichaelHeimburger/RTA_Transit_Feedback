@@ -266,6 +266,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\RideHappyOutput.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -399,6 +400,8 @@
     <Content Include="Views\Batches\Edit.cshtml" />
     <Content Include="Views\Batches\Index.cshtml" />
     <Content Include="Views\FeedBackForms\RideHappyOutput.cshtml" />
+    <Content Include="Views\Batches\PrintBatch.cshtml" />
+    <Content Include="Views\Manage\ChangeInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

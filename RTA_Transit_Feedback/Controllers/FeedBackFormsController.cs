@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Rotativa;
+using Rotativa.Options;
 using RTA_Transit_Feedback;
 using RTA_Transit_Feedback.Models;
 
@@ -27,11 +28,12 @@ namespace RTA_Transit_Feedback.Controllers
             db.SaveChanges();
             foreach(FeedBackForm form in x.Forms)
             {
+                if (form.toBatch) { 
                 var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
                 changedform.BatchID = newBatch.BatchID;
                 db.Entry(changedform).State = EntityState.Modified;
                 db.SaveChanges();
-
+                }
             }
            return View(x);
         }
@@ -99,9 +101,7 @@ namespace RTA_Transit_Feedback.Controllers
         {
             //customers.Id = User.Identity.GetUserId();
             var x = User.Identity.GetUserId();//gets id of current user logged in
-            var y = (from c in db.Customers where c.Id == x select c.CustomerID).ToList();
-            feedBackForm.CustomerID = y[0];
-
+            feedBackForm.CustomerID = (from c in db.Customers where c.Id == x select c.CustomerID).ToList()[0];
             if (ModelState.IsValid)
             {
                 db.FeedBackForm.Add(feedBackForm);
@@ -162,6 +162,7 @@ namespace RTA_Transit_Feedback.Controllers
                 return HttpNotFound();
             }
             return View(feedBackForm);
+       
         }
 
         // POST: FeedBackForms/Delete/5
@@ -188,7 +189,18 @@ namespace RTA_Transit_Feedback.Controllers
                 {
                     return HttpNotFound();
                 }
-                return new ViewAsPdf ("RideHappyOutput", feedBackForm);
+
+                return new ViewAsPdf("RideHappyOutput", feedBackForm)
+                {                    
+                    PageOrientation = Orientation.Portrait,
+                    //PageWidth = 88.9,
+                    //PageHeight = 152.4,
+                    PageMargins = new Margins(0, 0, 0, 0),
+                    //CustomSwitches = "--disable-smart-shrinking"
+                };
+
+
+
             }
             return RedirectToAction("Index", "Home");
 

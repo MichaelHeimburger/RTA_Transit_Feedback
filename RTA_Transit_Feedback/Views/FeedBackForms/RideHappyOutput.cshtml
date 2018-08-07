@@ -4,194 +4,33 @@
     ViewBag.Title = "RideHappyOutput";
 }
 
-@{ 
+@{
     Layout = null;
 }
 
-@*<h2>RideHappyOutput</h2>*@
 
 <head>
+
+    <link href="~/Content/RideHappyOutput.css" rel="stylesheet" />
+
     <style>
-            
 
-        p {
-            font-size: 17px;
-        }
-
-        .container {
-            position: relative;
-            color: black;
-            font-weight: 400;
-            width: 480px;
-            font-family: 'Oswald', sans-serif;
-        }
-
-
-
-        .feedbackLn1 {
-            position: absolute;
-            top: 113px;
-            left: 42px;
-            text-align: left;
-            overflow-wrap: break-word;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 39px;
-            width: 400px;
-        }
-
-        .dateOfRide {
-            position: absolute;
-            top: 278px;
-            left: 135px;
-            text-align: center;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-
-        .timeOfRide {
-            position: absolute;
-            top: 279px;
-            left: 345px;
-            text-align: center;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .routeNameNumber {
-            position: absolute;
-            top: 316px;
-            left: 249px;
-            text-align: center;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .busRapidNumber {
-            position: absolute;
-            top: 354px;
-            left: 262px;
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderFname {
-           
-            position: absolute;
-            top: 393px;
-            left: 75px;
-            text-align: right;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderLname {
-            
-            position: absolute;
-            top: 393px;
-            /*left: 300px;*/
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderAddressLn1 {
-            position: absolute;
-            top: 432px;
-            left: 85px;
-            text-align: right;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderAddressLn2 {
-            position: absolute;
-            top: 432px;
-            /*left: 269px;*/
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderCity {
-            position: absolute;
-            top: 471px;
-            left: 60px;
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderState {
-            position: absolute;
-            top: 509px;
-            left: 65px;
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderZip {
-            position: absolute;
-            top: 509px;
-            left: 255px;
-            text-align: left;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderPhone {
-            position: absolute;
-            top: 548px;
-            left: 75px;
-            text-align: center;
-            font-size: 17px;
-            font-weight: 400;
-        }
-
-        .riderEmail {
-            position: absolute;
-            top: 552px;
-            left: 275px;
-            text-align: center;
-            font-size: 9px;
-            font-weight: 400;
-            transform:scaleY(5);
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="rideHappyCard">
-            <img src="../../Images/RideHappy.jpg" style="width: 442px; z-index:-1; border: dashed 1px;">
-        </div>
         <div class="feedbackLn1">@Html.DisplayFor(model => model.FeedbackDescription)</div>
         <div class="dateOfRide">@Html.DisplayFor(model => model.DateofRide)</div>
-
-        @*<div class="dateOfRide">@Model.DateofRide.ToString("MM-dd-yyyy")</div>*@
-
-        @*<div>@String.Format("dd-MMM-yyyy", Model.DateofRide)</div>*@
-
-
-
         <div class="timeOfRide">@Html.DisplayFor(model => model.TimeofRide)</div>
         <div class="routeNameNumber">@Html.DisplayFor(model => model.RouteName)</div>
         <div class="busRapidNumber">@Html.DisplayFor(model => model.VehNum)</div>
         <div class="riderFname">@Html.DisplayFor(model => model.Customers.FirstName) @Html.DisplayFor(model => model.Customers.LastName)</div>
-        @*<div class="riderLname">@Html.DisplayFor(model => model.Customers.LastName)</div>*@
         <div class="riderAddressLn1">@Html.DisplayFor(model => model.Customers.AddressL1) @Html.DisplayFor(model => model.Customers.AddressL2)</div>
-        @*<div class="riderAddressLn2">@Html.DisplayFor(model => model.Customers.AddressL2)</div>*@
         <div class="riderCity">@Html.DisplayFor(model => model.Customers.City)</div>
         <div class="riderState">@Html.DisplayFor(model => model.Customers.state.stateName)</div>
         <div class="riderZip">@Html.DisplayFor(model => model.Customers.Zip)</div>
         <div class="riderPhone">@Html.DisplayFor(model => model.Customers.PhoneNum)</div>
         <div class="riderEmail">@Html.DisplayFor(model => model.Customers.AspNetUsers.Email)</div>
     </div>
-    @*<p>@Html.ActionLink("Print", "Print", "RideHappyOutput", new { id = Model.FeedbackID })</p>*@
-    <p>@Html.ActionLink("Print", "Print")</p>
-
-
 </body>

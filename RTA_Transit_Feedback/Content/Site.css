@@ -58,9 +58,21 @@ nav a {
    box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5)
 }
 
+
 .indexjumbo {
     background-color: blue;
     background-image: url('../images/pexels-photo-808700.jpeg');
     background-size:cover;
     background-repeat:no-repeat;
 }
+
+/*------------------Customer create styleing-------------------*/
+.formDisplay {
+    position: fixed;
+    top: 17vh;
+    right:2vw;
+}
+.formDisplay img{
+    height:40vw;
+}
+

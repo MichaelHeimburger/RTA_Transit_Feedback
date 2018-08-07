@@ -55,7 +55,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Batch.TrackingNo)
+            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(model => model.Batch.TrackingNo))'target="_blank">@Html.DisplayFor(model => model.Batch.TrackingNo)</a>
         </dd>
 
         <dt>
