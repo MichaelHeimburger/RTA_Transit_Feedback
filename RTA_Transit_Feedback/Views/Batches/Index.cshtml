@@ -23,9 +23,10 @@
             <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))'target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BatchID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BatchID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BatchID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.BatchID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BatchID })
+            @Html.ActionLink("PrintBatch", "PrintBatch", new { id = item.BatchID })
         </td>
     </tr>
 }

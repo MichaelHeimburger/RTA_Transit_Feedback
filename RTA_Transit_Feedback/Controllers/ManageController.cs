@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,6 +14,8 @@ namespace RTA_Transit_Feedback.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -321,6 +324,36 @@ namespace RTA_Transit_Feedback.Controllers
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
+
+        public ActionResult ChangeInfo()
+        {
+            var userGuid = User.Identity.GetUserId();//gets id of current user logged in
+           var  customers = (from c in db.Customers where c.Id == userGuid select c).ToList()[0];
+            if (customers == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
+            return View(customers);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeInfo([Bind(Include = "CustomerID,FirstName,LastName,AddressL1,AddressL2,City,stateID,PhoneNum,Id,Zip")]Customers customers)
+        {
+            if (ModelState.IsValid)
+            {
+
+                db.Entry(customers).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ChangeInfo");
+            }
+            ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
+            return RedirectToAction("Index", "Manage");
+
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

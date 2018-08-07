@@ -1,20 +1,19 @@
 ﻿@model RTA_Transit_Feedback.Customers
-
+@using Microsoft.Owin.Security
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "ChangeInfo";
 }
+<h2>ChangeInfo</h2>
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Customers</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CustomerID)
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -22,15 +21,13 @@
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group" oninput="LastNameForm()">
+        <div class="form-group">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10 LastNameInput">
+            <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,7 +35,6 @@
                 @Html.ValidationMessageFor(model => model.AddressL1, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -46,7 +42,6 @@
                 @Html.ValidationMessageFor(model => model.AddressL2, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -54,15 +49,13 @@
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.stateID,  htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.stateID, "stateID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("stateID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -70,7 +63,6 @@
                 @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -78,7 +70,6 @@
                 @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -86,42 +77,16 @@
                 @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-<div class="formDisplay">
-    <img  src="~/images/RideHappy.jpg" />
-    <p></p>
-</div>
-
-
-
-
-
-
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-
-
-<script>
-    function LastNameForm(){
-        var x = document.getElementsByClassName("LastNameInput")[0].
-        alert(x);
-    }
-
-
-
-</script>

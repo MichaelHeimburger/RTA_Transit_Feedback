@@ -57,3 +57,13 @@ nav a {
     margin-bottom: 5px;
    box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5)
 }
+
+/*------------------Customer create styleing-------------------*/
+.formDisplay {
+    position: fixed;
+    top: 17vh;
+    right:2vw;
+}
+.formDisplay img{
+    height:40vw;
+}
