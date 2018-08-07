@@ -272,6 +272,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\21678339611_1611d9b639_b.jpg" />
+    <Content Include="images\Cleveland_Airport_station_platform.JPG" />
+    <Content Include="images\pexels-photo-808700.jpeg" />
     <Content Include="images\RideHappy.jpg" />
     <Content Include="images\RTA.png" />
     <Content Include="Model1.Context.tt">
