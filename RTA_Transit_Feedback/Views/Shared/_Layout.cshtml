@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <div class="bodybg"></div>
         @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -38,9 +39,9 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>@*//What you see, the action/page associated, controller name*@
-                    <li>@Html.ActionLink("Feedback Form", "Index", "FeedBackForms")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms")</li>@*//What you see, the action/page associated, controller name*@
+                    <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li>
+                    <li>@Html.ActionLink("About", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
                 <span class="navbar-text">
