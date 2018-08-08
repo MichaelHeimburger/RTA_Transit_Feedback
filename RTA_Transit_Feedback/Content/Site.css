@@ -1,5 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -52,10 +53,10 @@ nav a {
 }
 .undernavdiv {
     width: 100%;
-    height:10px;
-    background-color: lightskyblue;
+    height: 10px;
+    background-color: #007bff;
     margin-bottom: 5px;
-   box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5)
+    /*box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5);*/
 }
 
 /*------------------Customer create styleing-------------------*/
