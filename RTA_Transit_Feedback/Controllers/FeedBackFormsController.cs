@@ -23,18 +23,23 @@ namespace RTA_Transit_Feedback.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(FeedBackRelayViewModel x)
         {
-            Batch newBatch = new Batch();
+            Batch newBatch = new Batch(); //\a Generates a new batch and adds it to database
             db.Batch.Add(newBatch);
-            db.SaveChanges();
-            foreach(FeedBackForm form in x.Forms)
+            db.SaveChanges(); //\a
+            //if(x.BatchAll)
+            //{
+            //    foreach (FeedBackForm form in x.Forms)
+            //}
+            foreach(FeedBackForm form in x.Forms)//\b Checks the status of the bool on each individual form and sets the batch for each that are true to the previously generated batch
             {
-                if (form.toBatch) { 
+                if (form.toBatch) {  
                 var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
                 changedform.BatchID = newBatch.BatchID;
                 db.Entry(changedform).State = EntityState.Modified;
                 db.SaveChanges();
-                }
+                } // \b
             }
+           
            return View(x);
         }
         public ActionResult Index()
