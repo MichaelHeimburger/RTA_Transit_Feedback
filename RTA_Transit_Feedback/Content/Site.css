@@ -1,9 +1,15 @@
 ﻿body {
     padding-bottom: 20px;
     background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    position:static;
 }
-
+.bodybg {
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    object-fit: cover;   
+    z-index:-1;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -54,10 +60,10 @@ nav a {
 }
 .undernavdiv {
     width: 100%;
-    height:10px;
-    background-color: lightskyblue;
+    height: 10px;
+    background-color: #007bff;
     margin-bottom: 5px;
-   box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5)
+    /*box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5);*/
 }
 
 
@@ -82,26 +88,3 @@ nav a {
     color:white;
 }
 
-#indeximage {
-    box-shadow: 6px 9px 15px 0px rgb(69, 97, 75);
-}
-
-.indexheadertext{
-    color:orange;
-}
-
-.indexheadertext2{
-    color:antiquewhite;
-}
-
-.indexheadertext3{
-    color:purple;
-}
-
-.bodybg {
-    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    object-fit: cover;
-}

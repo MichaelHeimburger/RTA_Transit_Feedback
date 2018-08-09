@@ -353,7 +353,14 @@ namespace RTA_Transit_Feedback.Controllers
 
         }
 
+        public ActionResult FeedBackIndex()
+        {
+            var userGuid = User.Identity.GetUserId();
+            var custID = (from c in db.Customers where c.Id == userGuid select c.CustomerID).Single();
+            var feedBackForm = (from c in db.FeedBackForm where c.CustomerID == custID select c).ToList();
+            return View(feedBackForm);
 
+        }
 
         protected override void Dispose(bool disposing)
         {
