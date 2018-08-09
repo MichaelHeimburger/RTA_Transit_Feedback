@@ -70,13 +70,22 @@ nav a {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     height: 100px;
     display:flex;
-    justify-content:center;
+    font-family:'Oswald';
+    align-items:center;
 }
-
+.indeximage{
+    height:50vw;
+}
 .word{
     font-size:40px;
+    letter-spacing:1vw;
+    margin-left:4vw;
 }
 
+.ridehappycard{
+    display:flex;
+ 
+}
 
 /*------------------Customer create styleing-------------------*/
 .formDisplay {

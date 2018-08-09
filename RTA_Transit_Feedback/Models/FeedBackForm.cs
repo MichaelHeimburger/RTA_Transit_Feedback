@@ -12,7 +12,7 @@ namespace RTA_Transit_Feedback
     public partial class FeedBackForm
     {
         public bool toBatch { get; set; }
-
+        public bool isDanger { get; set; }
     }
 
     public class FeedBackFormsmetaData
