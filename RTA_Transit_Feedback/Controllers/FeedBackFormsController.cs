@@ -26,21 +26,31 @@ namespace RTA_Transit_Feedback.Controllers
             Batch newBatch = new Batch(); //\a Generates a new batch and adds it to database
             db.Batch.Add(newBatch);
             db.SaveChanges(); //\a
-            //if(x.BatchAll)
-            //{
-            //    foreach (FeedBackForm form in x.Forms)
-            //}
-            foreach(FeedBackForm form in x.Forms)//\b Checks the status of the bool on each individual form and sets the batch for each that are true to the previously generated batch
+            if (x.BatchAll) //\c if the batch all was checked then this sets
             {
-                if (form.toBatch) {  
-                var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
-                changedform.BatchID = newBatch.BatchID;
-                db.Entry(changedform).State = EntityState.Modified;
-                db.SaveChanges();
-                } // \b
+                foreach (FeedBackForm form in x.Forms)
+                {
+                    var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
+                    changedform.BatchID = newBatch.BatchID;
+                    db.Entry(changedform).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }// \c 
+            else {  // \b if batchall is unchecked only set the batchid on the ones which are have indivudual checks
+                foreach (FeedBackForm form in x.Forms)//\b Checks the status of the bool on each individual form and sets the batch for each that are true to the previously generated batch
+                {
+                    if (form.toBatch) {  
+                    var changedform = (from a in db.FeedBackForm where a.FeedbackID == form.FeedbackID select a).ToList()[0];
+                    changedform.BatchID = newBatch.BatchID;
+                    db.Entry(changedform).State = EntityState.Modified;
+                    db.SaveChanges();
+                    } // \b
+                }
             }
-           
-           return View(x);
+            var returnfeedbacks = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); // \d
+            var returnviewmodel = new FeedBackRelayViewModel();
+            returnviewmodel.Forms = returnfeedbacks;
+           return View(returnviewmodel);
         }
         public ActionResult Index()
         {
@@ -111,7 +121,7 @@ namespace RTA_Transit_Feedback.Controllers
             {
                 db.FeedBackForm.Add(feedBackForm);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             //ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);
