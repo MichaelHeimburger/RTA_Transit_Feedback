@@ -37,20 +37,20 @@ namespace RTA_Transit_Feedback.Controllers
         {
                 return View(batchedList);
         }
-        //// GET: Batches/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Batch batch = db.Batch.Find(id);
-        //    if (batch == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(batch);
-        //}
+        // GET: Batches/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Batch batch = db.Batch.Find(id);
+            if (batch == null)
+            {
+                return HttpNotFound();
+            }
+            return View(batch);
+        }
 
         //// GET: Batches/Create
         //public ActionResult Create()
@@ -75,36 +75,36 @@ namespace RTA_Transit_Feedback.Controllers
         //    return View(batch);
         //}
 
-        //// GET: Batches/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Batch batch = db.Batch.Find(id);
-        //    if (batch == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(batch);
-        //}
+        // GET: Batches/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Batch batch = db.Batch.Find(id);
+            if (batch == null)
+            {
+                return HttpNotFound();
+            }
+            return View(batch);
+        }
 
-        //// POST: Batches/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "BatchID,TrackingNo")] Batch batch)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(batch).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(batch);
-        //}
+        // POST: Batches/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "BatchID,TrackingNo")] Batch batch)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(batch).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(batch);
+        }
 
         //// GET: Batches/Delete/5
         //public ActionResult Delete(int? id)
