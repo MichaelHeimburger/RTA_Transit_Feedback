@@ -14,7 +14,7 @@ namespace RTA_Transit_Feedback.Controllers
 {
     public class CustomersController : Controller
     {
-        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+        private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         // GET: Customers
         //public ActionResult Index()

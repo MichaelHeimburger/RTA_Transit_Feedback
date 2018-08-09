@@ -16,7 +16,7 @@ namespace RTA_Transit_Feedback
     {
         public int FeedbackID { get; set; }
         public string FeedbackDescription { get; set; }
-        public Nullable<System.DateTime> DateofRide { get; set; }
+        public System.DateTime DateofRide { get; set; }
         public Nullable<System.TimeSpan> TimeofRide { get; set; }
         public string RouteName { get; set; }
         public string VehNum { get; set; }

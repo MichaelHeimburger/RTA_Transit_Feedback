@@ -75,3 +75,8 @@ nav a {
 .formDisplay img{
     height:40vw;
 }
+
+p #feedbackList {
+
+    color:red!important
+}

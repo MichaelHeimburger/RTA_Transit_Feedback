@@ -14,7 +14,7 @@ namespace RTA_Transit_Feedback.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+        private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
