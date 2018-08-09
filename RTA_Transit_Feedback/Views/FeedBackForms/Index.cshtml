@@ -33,6 +33,7 @@
         @Html.HiddenFor(model => Model.Forms[i].Batch)
         @Html.HiddenFor(model => Model.Forms[i].BatchID)
         @Html.HiddenFor(model => Model.Forms[i].Customers)
+        @Html.HiddenFor(model => Model.Forms[i].isDanger)
 
 
 
@@ -41,7 +42,29 @@
             <p>@Url.Content(Model.Forms[i].TimeofRide.ToString())</p>
         </div>
         <div class="col">
-            <p>@Url.Content(Model.Forms[i].FeedbackID.ToString())</p>
+            @*Changes bool for at risk feedback*@
+            @if (Model.Forms[i].isDanger == true)
+            {
+                
+                
+                    @*Highlights At Risk Feeback*@
+
+                    <p id="feedbackList" style="color:red">@Url.Content(Model.Forms[i].FeedbackID.ToString())</p>
+                
+            }
+            else
+            {
+                
+                    <p>@Url.Content(Model.Forms[i].FeedbackID.ToString())</p>
+                
+
+            }
+
+
+
+
+            @*}*@
+
         </div>
 
 

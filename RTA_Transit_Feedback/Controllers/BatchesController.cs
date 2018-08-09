@@ -13,7 +13,7 @@ namespace RTA_Transit_Feedback.Controllers
 {
     public class BatchesController : Controller
     {
-        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+        private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         // GET: Batches
         public ActionResult Index()
