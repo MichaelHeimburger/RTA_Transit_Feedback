@@ -8,7 +8,7 @@ namespace RTA_Transit_Feedback
 {
     public class ValidationCheck
     {
-        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+        private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         public bool HasCustomerInfo(string currentId)
         {

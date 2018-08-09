@@ -16,7 +16,7 @@ namespace RTA_Transit_Feedback.Controllers
 {
     public class FeedBackFormsController : Controller
     {
-        private TransitFeedbackAppDBv1Entities db = new TransitFeedbackAppDBv1Entities();
+        private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         // GET: FeedBackForms
         [HttpPost]
@@ -58,10 +58,23 @@ namespace RTA_Transit_Feedback.Controllers
             if (User.IsInRole("Admin"))
             {
                 FeedBackRelayViewModel x = new FeedBackRelayViewModel();
+                FeedBackForm feedBackForm = new FeedBackForm();
                 x.Forms = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); //gets all the forms that have not been batched and assigns them to the viewmodel
                 x.BatchAll = false; // initlaizeing the batchall variable in the viewmodel
-
-                return View(x);
+                foreach (var item in x.Forms)
+                {
+                    var startDate = item.DateofRide;/*(from a in db.FeedBackForm where a.DateofRide == a.DateofRide select a)*/;
+                    var endDate = DateTime.Now;
+                    var daysLeft = (int)((endDate - startDate ).TotalDays);
+                    if (daysLeft < 9)
+                    {
+                        item.isDanger = true;
+                        x.HasDanger = true;
+                        return View(x);
+                    }
+                }
+               
+                    return View(x);
             }
                     return RedirectToAction("Index", "Home");
         }
