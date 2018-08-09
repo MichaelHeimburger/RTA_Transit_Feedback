@@ -3,12 +3,12 @@
     background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
 }
 .bodybg {
-    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     height: 100%;
     width: 100%;
     position: fixed;
-    object-fit: cover;   
-    z-index:-1;
+    object-fit: cover;
+    z-index: -1;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -68,13 +68,16 @@ nav a {
 /*--------------------------------home index---------------------------*/
 .indexrowone {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    height: 100px;
-    display:flex;
-    font-family:'Oswald';
-    align-items:center;
+    height: 250px;
+    display: flex;
+    font-family: 'Oswald';
+    align-items: center;
 }
 .indeximage{
     height:50vw;
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:89px;
 }
 .word{
     font-size:40px;
@@ -84,7 +87,11 @@ nav a {
 
 .ridehappycard{
     display:flex;
- 
+}
+
+#jumbotronbg {
+    background-image: url('../images/pexels-photo-808700.jpeg');
+    color: white;
 }
 
 
@@ -93,6 +100,18 @@ nav a {
     background-image: url('../images/pexels-photo-808700.jpeg');
     background-size:cover;
     background-repeat:no-repeat;
+}
+
+#cptlogo{
+    display:flex;
+    flex-direction:row-reverse;
+    max-height:100%;
+    width:250px;
+
+}
+
+#homepagedescription{
+    height: 150px;
 }
 
 /*------------------Customer create styleing-------------------*/
