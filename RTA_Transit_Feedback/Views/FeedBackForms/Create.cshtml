@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>FeedBackForm</h4>
         <hr />
@@ -51,33 +51,75 @@
         <div class="form-group">
             @Html.LabelFor(model => model.VehNum, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.VehNum, new { htmlAttributes = new { @class = "form-control" , placeholder = "e.g. 1026" } })
+                @Html.EditorFor(model => model.VehNum, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. 1026" } })
                 @Html.ValidationMessageFor(model => model.VehNum, "", new { @class = "text-danger" })
             </div>
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.BatchID, "BatchID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("BatchID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BatchID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.BatchID, "BatchID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("BatchID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BatchID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
+
+
+            <button id="btnShowModal" type="button"
+                    class="btn btn-sm btn-default pull-left col-lg-11 button button4">
+                Continue
+            </button>
+
+            <div class="modal fade" tabindex="-1" id="loginModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                ×
+                            </button>
+                            <h4 class="modal-title">Hi There</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            Continue    
+
+                            <form>
+                                <h2>test</h2>
+                                @*<div class="form-group">
+                                        <input class="form-control" type="text"
+                                               placeholder="Login Username" id="inputUserName" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Login Password"
+                                               type="password" id="inputPassword" />
+                                    </div>*@
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary button button4">Submit</button>
+                            <button type="button" id="btnHideModal" class="btn btn-primary button button4">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
 }
 
 <div>
@@ -87,3 +129,22 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btnShowModal").click(function () {
+            $("#loginModal").modal('show');
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#loginModal").modal('hide');
+        });
+    });
+</script>
