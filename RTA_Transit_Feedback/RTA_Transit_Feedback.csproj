@@ -248,6 +248,7 @@
     <Compile Include="Models\BatchViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\FeedBackForm.cs" />
+    <Compile Include="Models\FeedBackForm validation.cs" />
     <Compile Include="Models\FeedBackRelayViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -344,7 +345,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -394,7 +397,6 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\FeedBackForms\Create.cshtml" />
     <Content Include="Views\FeedBackForms\Delete.cshtml" />
     <Content Include="Views\FeedBackForms\Details.cshtml" />
     <Content Include="Views\FeedBackForms\Edit.cshtml" />
@@ -408,6 +410,7 @@
     <Content Include="Views\Batches\PrintBatch.cshtml" />
     <Content Include="Views\Manage\ChangeInfo.cshtml" />
     <Content Include="Views\Manage\FeedBackIndex.cshtml" />
+    <Content Include="Views\FeedBackForms\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
