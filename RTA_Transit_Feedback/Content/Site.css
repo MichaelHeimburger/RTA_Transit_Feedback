@@ -76,10 +76,30 @@ a:hover{
     height:40vw;
 }
 .indexrowthreecolone{
-    background-color:green;
+    /*background-color:green;*/
 }
-.indexrowthreecoltwo{
-    background-color:white;
+.indexrowthreecoltwo {
+    /*background-color: white;*/
+    /*background-image: url('../images/RideHappy.jpg');*/
+    height:100%;
+}
+
+.indexrowfour {
+    height: 30vw;
+}
+
+.indexrowfourcolone {
+    /*background-color: aqua;*/
+    background-image: url('../images/pexels-photo-808700.jpeg');
+}
+
+.indexrowcoltwo{
+    /*background-color:burlywood;*/
+}
+
+.indexrowfourcolthree {
+    /*background-color: rosybrown;*/
+    background-image: url('../images/RideHappy.jpg');
 }
 .text{
     margin:50px;
