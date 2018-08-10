@@ -3,39 +3,18 @@
 @{
     ViewBag.Title = "FeedBackIndex";
 }
-<h2>FeedBackIndex</h2>
-
-    <h4>FeedBackForm</h4>
+<h2>Your Feedback</h2>
+<div class="rolodex">
     <hr />
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FeedbackDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateofRide)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeofRide)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Batch.TrackingNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customers.FirstName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.FeedbackID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackID })
-            </td>
-        </tr>
-    }
 
+        <div class="cardindex">
+            @*<img class="ridehappycard" src="~/images/RideHappy.jpg" />*@
+            <p class="feedbackdescriptionc indexcard">
+                @Url.Content(item.FeedbackDescription)
+            </p>
+
+        </div>
+    }
+</div>
