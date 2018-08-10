@@ -60,15 +60,14 @@ namespace RTA_Transit_Feedback.Controllers
                 x.BatchAll = false; // initlaizeing the batchall variable in the viewmodel
                 foreach (var item in x.Forms)
                 {
-                    var startDate = item.DateofRide;/*(from a in db.FeedBackForm where a.DateofRide == a.DateofRide select a)*/;
+                   var startDate = item.DateofRide;/*(from a in db.FeedBackForm where a.DateofRide == a.DateofRide select a)*/;
                     var endDate = DateTime.Now;
-                    var daysLeft = (int)((endDate - startDate ).TotalDays);
-                    if (daysLeft < 9)
+                    var daysLeft = (int)((endDate - startDate).TotalDays);
+                    if (daysLeft >= 8)
                     {
                         item.isDanger = true;
-                        x.HasDanger = true;
-                        return View(x);
-                    }
+                        x.HasDanger = true;  
+                    } 
                 }
                
                     return View(x);
