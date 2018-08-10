@@ -47,10 +47,7 @@ namespace RTA_Transit_Feedback.Controllers
                     } // \b
                 }
             }
-            var returnfeedbacks = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); // \d
-            var returnviewmodel = new FeedBackRelayViewModel();
-            returnviewmodel.Forms = returnfeedbacks;
-           return View(returnviewmodel);
+           return RedirectToAction("Index","Batches");
         }
         public ActionResult Index()
         {
@@ -115,8 +112,10 @@ namespace RTA_Transit_Feedback.Controllers
                  ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
                  return View();
                  }
+                return RedirectToAction("Create", "Customers");
+
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Register", "Account");
 
         }
 
@@ -134,7 +133,7 @@ namespace RTA_Transit_Feedback.Controllers
             {
                 db.FeedBackForm.Add(feedBackForm);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("FeedBackIndex", "Manage");
             }
 
             //ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);

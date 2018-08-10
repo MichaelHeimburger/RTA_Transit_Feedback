@@ -346,7 +346,7 @@ namespace RTA_Transit_Feedback.Controllers
 
                 db.Entry(customers).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ChangeInfo");
+                return RedirectToAction("Index","Home");
             }
             ViewBag.stateID = new SelectList(db.state, "stateID", "stateCode", customers.stateID);
             return RedirectToAction("Index", "Manage");

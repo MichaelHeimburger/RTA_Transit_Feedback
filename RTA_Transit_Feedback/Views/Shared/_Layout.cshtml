@@ -2,6 +2,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -11,17 +12,25 @@
 </head>
 <body>
     <div class="bodybg"></div>
-        <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Facilitating your feedback!</a>
+        <nav class="navbar navbar-light navbarheader">
+            <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms")</li>@*//What you see, the action/page associated, controller name*@
-                    <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li>
-                    <li>@Html.ActionLink("About", "Contact", "Home")</li>
+                    @if (!(User.IsInRole("Admin")))
+                    {
+                     <li> @Html.ActionLink("About", "Contact", "Home") </li >
+                    <li> @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") </li >@*//What you see, the action/page associated, controller name*@
+                    if (!(User.Identity.Name == null))
+                    { <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li> }
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {<li>@Html.ActionLink("View Cards", "Index", "FeedBackForms")</li>
+                    <li>@Html.ActionLink("Manage Batches", "Index", "Batches")</li>}
+
                 </ul>
                 @Html.Partial("_LoginPartial")
                 <span class="navbar-text">
@@ -29,7 +38,7 @@
                 </span>
             </div>
         </nav>
-    <div class="undernavdiv"></div>
+    @*<div class="undernavdiv"></div>*@
         <div class="container-fluid body-content">
             @RenderBody()
             @*<hr />*@
