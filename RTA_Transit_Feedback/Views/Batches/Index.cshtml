@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Manage Batches</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
 
     <tr>
@@ -17,6 +15,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TrackingNo)
+        </th>
+        <th>
+            Batch Functions
         </th>
 
     </tr>
@@ -34,7 +35,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.BatchID }) |
             @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
             @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
         </td>
     </tr>
