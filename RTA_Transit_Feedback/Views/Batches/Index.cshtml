@@ -10,25 +10,34 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
+
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BatchID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.TrackingNo)
         </th>
-        <th></th>
+
     </tr>
 
-@foreach (var item in Model) {
+
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
-            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))'target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
+            @Html.DisplayFor(model => item.BatchID)
+        </td>
+        <td>
+            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.BatchID }) |
             @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BatchID })
-            @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |
+            @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
         </td>
     </tr>
-}
+    }
 
 </table>
