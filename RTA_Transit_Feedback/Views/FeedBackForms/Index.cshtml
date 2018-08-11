@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Edit</h2>
+<h2>Select Feedbacks to Print</h2>
 
 
 @using (Html.BeginForm())
@@ -12,11 +12,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>table</h4>
         <hr />
         <div class="form-group">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BatchAll)
+                <p>Batch All:    @Html.EditorFor(model => model.BatchAll)</p>
                 @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
             </div>
         </div>
@@ -39,14 +38,13 @@
 
             <div class="row">
                 <div class="col">
-                    <p>@Url.Content(Model.Forms[i].TimeofRide.ToString())</p>
+                    <p>@Html.DisplayFor(model => Model.Forms[i].DateofRide)</p>
                 </div>
                 <div class="col">
                     @*Changes bool for at risk feedback*@
                     @if (Model.Forms[i].isDanger == true)
                     {
                         @*Highlights At Risk Feeback*@
-
                         <p id="feedbackList" style="color:red">@Url.Content(((int)((DateTime.Now - Model.Forms[i].DateofRide).TotalDays)).ToString())</p>
                     }
                     else
@@ -66,16 +64,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Set Selected to Batch" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

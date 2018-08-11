@@ -100,6 +100,7 @@ namespace RTA_Transit_Feedback.Controllers
         public ActionResult Create()
         {
             var validationCheck = new ValidationCheck();
+            var feedBackCreateViewModel = new FeedBackCreateViewModel();
             var currentUserId = User.Identity.GetUserId();
             if(currentUserId !=null)
             {
@@ -109,7 +110,12 @@ namespace RTA_Transit_Feedback.Controllers
                  {
                  ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
                  ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
-                 return View();
+                    var thiscustomer = (from a in db.Customers where a.Id == currentUserId select a).ToList()[0];
+                    var newfeedback = new FeedBackForm();
+                    feedBackCreateViewModel.state = (from z in db.state where thiscustomer.stateID == z.stateID select z.stateName).ToList()[0];
+                    feedBackCreateViewModel.customers = thiscustomer;
+                    feedBackCreateViewModel.feedBackForm = newfeedback;
+                 return View(feedBackCreateViewModel);
                  }
                 return RedirectToAction("Create", "Customers");
 

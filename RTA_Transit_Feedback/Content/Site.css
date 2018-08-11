@@ -26,6 +26,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 /*--------------------------------Navbar---------------------------*/
 nav a {
     font-family: 'Roboto', sans-serif;
@@ -85,30 +86,24 @@ a:hover{
     margin:50px;
 }
 /*------------------Customer create styleing-------------------*/
-.formDisplay {
-    position: fixed;
-    top: 17vh;
-    right: 2vw;
-}
-.formDisplay img{
-    height:40vw;
-}
+
 
 .lead{
     color:white;
 }
+/*------------------Feedback Index For Admins-------------------*/
 
 
-p #feedbackList {
-
-    color:red!important
+#feedbackList {
+   color:red
 }
 /*------------------Feedback Index For Customers-------------------*/
 .rolodex{
-    display:flex;
-    align-items:flex-start;
+    display:inline-flex;
+    /*align-items:flex-end;*/
     flex-wrap:wrap;
-    justify-content:space-between;
+    /*justify-content:flex-end;
+    align-content:flex-start;*/
 }
 .feedbackdescriptionc{
     grid-column:2 /span 2;
@@ -125,7 +120,7 @@ p #feedbackList {
     background-size:contain;
     grid-template-columns: 1fr 10fr 10fr 1fr;
     grid-template-rows: 2.5fr 3.5fr .8fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
-margin:2vw;
+margin:.5vw;
 }
 .indexcard{
     overflow:hidden;

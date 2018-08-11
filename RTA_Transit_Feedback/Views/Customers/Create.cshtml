@@ -7,76 +7,75 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Customers</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div oninput="FirstNameForm()" class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control FirstNameInput" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group" oninput="LastNameForm()">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10 LastNameInput">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control LastNameInput" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AddressL1, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" oninput="AddressOneForm()">
+                @Html.EditorFor(model => model.AddressL1, new { htmlAttributes = new { @class = "form-control AddressOneInput" } })
                 @Html.ValidationMessageFor(model => model.AddressL1, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AddressL2, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" oninput="AddressTwoForm()">
+                @Html.EditorFor(model => model.AddressL2, new { htmlAttributes = new { @class = "form-control AddressTwoInput" } })
                 @Html.ValidationMessageFor(model => model.AddressL2, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" oninput="CityForm()">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-contro CityInput" } })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.stateID,  htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("stateID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" >
+                @Html.DropDownList("stateID", null, htmlAttributes: new { @class = "form-control StateInput", @onChange= "StateForm(this)" })
                 @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" oninput="PhoneForm()">
+                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control PhoneInput" } })
                 @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
             </div>
         </div>
 
- @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" oninput="ZipForm()">
+                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control ZipInput" } })
                 @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -94,8 +93,16 @@
 </div>
 
 <div class="formDisplay">
-    <img  src="~/images/RideHappy.jpg" />
-    <p></p>
+    <img src="~/images/RideHappy.jpg" />
+    <p class="FeedBackCardFirstName RideHappyCardText"></p>
+    <p class="FeedBackCardLastName RideHappyCardText"></p>
+    <p class="FeedBackCardAddressOne RideHappyCardText"></p>
+    <p class="FeedBackCardAddressTwo RideHappyCardText"></p>
+    <p class="FeedBackCardCity RideHappyCardText"></p>
+    <p class="FeedBackCardState RideHappyCardText"></p>
+    <p class="FeedBackCardPhone RideHappyCardText"></p>
+    <p class="FeedBackCardZip RideHappyCardText"></p>
+    <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
 </div>
 
 
@@ -111,11 +118,35 @@
 
 
 <script>
-    function LastNameForm(){
-        var x = document.getElementsByClassName("LastNameInput")[0].
-        alert(x);
+    function FirstNameForm() {
+        var x = document.getElementsByClassName("FirstNameInput")[0].value;
+        document.getElementsByClassName("FeedBackCardFirstName")[0].innerHTML = x;
     }
-
-
-
+    function LastNameForm() {
+        var x = document.getElementsByClassName("LastNameInput")[0].value;
+        document.getElementsByClassName("FeedBackCardLastName")[0].innerHTML = x;
+    }
+    function AddressOneForm() {
+        var x = document.getElementsByClassName("AddressOneInput")[0].value;
+        document.getElementsByClassName("FeedBackCardAddressOne")[0].innerHTML = x;
+    }
+    function AddressTwoForm() {
+        var x = document.getElementsByClassName("AddressTwoInput")[0].value;
+        document.getElementsByClassName("FeedBackCardAddressTwo")[0].innerHTML = x;
+    }
+    function CityForm() {
+        var x = document.getElementsByClassName("CityInput")[0].value;
+        document.getElementsByClassName("FeedBackCardCity")[0].innerHTML = x;
+    }
+    function StateForm(x) {
+        document.getElementsByClassName("FeedBackCardState")[0].innerHTML = x.options[x.selectedIndex].innerHTML;
+    }
+    function PhoneForm() {
+        var x = document.getElementsByClassName("PhoneInput")[0].value;
+        document.getElementsByClassName("FeedBackCardPhone")[0].innerHTML = x;
+    }
+    function ZipForm() {
+        var x = document.getElementsByClassName("ZipInput")[0].value;
+        document.getElementsByClassName("FeedBackCardZip")[0].innerHTML = x;
+    }
 </script>

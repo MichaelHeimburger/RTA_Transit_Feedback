@@ -1,0 +1,77 @@
+﻿
+.RideHappyCardText {
+    margin-left: 30px;
+    margin-top: 7px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.formDisplay {
+    position: fixed;
+    box-shadow: 5px 5px black;
+    top: 17vh;
+    right: 2vw;
+    height: 500px;
+    max-width: 298px;
+    display: grid;
+    grid-template-rows: 70px 106px repeat(8, 26px);
+    grid-template-columns: .1fr 1fr 1fr .1fr;
+}
+
+    .formDisplay img {
+        height: 500px;
+        grid-column: 1 / -1;
+        grid-row: 1 /-1;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+.FeedBackCardFirstName {
+    grid-column: 2 /span 2;
+    grid-row: 6 /span 1;
+}
+
+.FeedBackCardLastName {
+    grid-column: 3 /span 1;
+    grid-row: 6 /span 1;
+}
+
+.FeedBackCardAddressOne {
+    grid-column: 2 /span 2;
+    grid-row: 7 /span 1;
+    margin-left: 0;
+    transform: scale(.7,1);
+}
+
+.FeedBackCardAddressTwo {
+    grid-column: 3 /span 1;
+    grid-row: 7 /span 1;
+}
+
+.FeedBackCardCity {
+    grid-column: 2 /span 2;
+    grid-row: 8 /span 1;
+}
+
+.FeedBackCardState {
+    grid-column: 2 /span 1;
+    grid-row: 9 /span 1;
+}
+
+.FeedBackCardPhone {
+    grid-column: 2 /span 1;
+    grid-row: 10 /span 1;
+}
+
+.FeedBackCardZip {
+    grid-column: 3 /span 1;
+    grid-row: 9 /span 1;
+    margin-left: 20px;
+}
+
+.FeedBackCardEmail {
+    grid-column: 3/span 1;
+    grid-row: 10/span1;
+    margin-left: 10px;
+    transform: scale(.7,1);
+}

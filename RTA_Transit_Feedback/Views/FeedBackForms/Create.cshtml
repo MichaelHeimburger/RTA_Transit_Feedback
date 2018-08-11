@@ -1,4 +1,4 @@
-﻿@model RTA_Transit_Feedback.FeedBackForm
+﻿@model RTA_Transit_Feedback.Models.FeedBackCreateViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -15,63 +15,46 @@
         <h4>FeedBackForm</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.FeedbackDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" oninput="DescriptionForm()">
+            @Html.LabelFor(model => model.feedBackForm.FeedbackDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FeedbackDescription, new { htmlAttributes = new { @class = "form-control", placeholder = "Provide your comments here.", cols = 35, @rows = 5 } })
+                @Html.EditorFor(model => model.feedBackForm.FeedbackDescription, new { htmlAttributes = new { @class = "form-control DescriptionInput", placeholder = "Provide your comments here.", cols = 35, @rows = 5 } })
 
-                @Html.ValidationMessageFor(model => model.FeedbackDescription, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.feedBackForm.FeedbackDescription, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateofRide, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.feedBackForm.DateofRide, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateofRide, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateofRide, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.feedBackForm.DateofRide, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.feedBackForm.DateofRide, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TimeofRide, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.feedBackForm.TimeofRide, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TimeofRide, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TimeofRide, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.feedBackForm.TimeofRide, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.feedBackForm.TimeofRide, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" oninput="RouteNameForm()">
+            @Html.LabelFor(model => model.feedBackForm.RouteName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.feedBackForm.RouteName, new { htmlAttributes = new { @class = "form-control RouteNameInput", placeholder = "Route 3, Red Line, HealthLine" } })
+                @Html.ValidationMessageFor(model => model.feedBackForm.RouteName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RouteName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RouteName, new { htmlAttributes = new { @class = "form-control", placeholder = "Route 3, Red Line, HealthLine" } })
-                @Html.ValidationMessageFor(model => model.RouteName, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.feedBackForm.VehNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" oninput="VehicleForm()">
+                @Html.EditorFor(model => model.feedBackForm.VehNum, new { htmlAttributes = new { @class = "form-control VehicleForm", placeholder = "e.g. 1026" } })
+                @Html.ValidationMessageFor(model => model.feedBackForm.VehNum, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.VehNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.VehNum, new { htmlAttributes = new { @class = "form-control" , placeholder = "e.g. 1026" } })
-                @Html.ValidationMessageFor(model => model.VehNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.BatchID, "BatchID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("BatchID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BatchID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -79,6 +62,58 @@
         </div>
     </div>
 }
+}
+
+    <div class="formDisplay">
+        <img src="~/images/RideHappy.jpg" />
+        <p class="FeedBackCardDescription RideHappyCardText">test</p>
+        <p class="FeedBackCardRouteName RideHappyCardText">test</p>
+        <p class="FeedBackCardVehicle RideHappyCardText">test</p>
+        <p class="FeedBackCardDescription RideHappyCardText">test</p>
+
+        <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(Model.customers.FirstName)</p>
+        <p class="FeedBackCardLastName RideHappyCardText">@Url.Content(Model.customers.LastName)</p>
+        <p class="FeedBackCardAddressOne RideHappyCardText">@Url.Content(Model.customers.AddressL1)</p>
+        <p class="FeedBackCardAddressTwo RideHappyCardText">@Url.Content(Model.customers.AddressL2)</p>
+        <p class="FeedBackCardCity RideHappyCardText">@Url.Content(Model.customers.City)</p>
+        <p class="FeedBackCardState RideHappyCardText">@Url.Content(Model.state)</p>
+        <p class="FeedBackCardPhone RideHappyCardText">@Url.Content(Model.customers.PhoneNum)</p>
+        <p class="FeedBackCardZip RideHappyCardText">@Url.Content(Model.customers.Zip)</p>
+        <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
+    </div>
+<style>
+    .FeedBackCardDescription{
+        grid-column: 2/span 2;
+        grid-row:2/span 1;
+        margin-left:0;
+    }
+    .FeedBackCardRouteName {
+        grid-column: 3/span 1;
+        grid-row: 4/span 1;
+    }
+    .FeedBackCardVehicle{
+        grid-column: 1/span 2;
+        grid-row: 5/span 1;
+    }
+
+
+</style>
+<script>
+    function DescriptionForm() {
+        var x = document.getElementsByClassName("DescriptionInput")[0].value;
+        document.getElementsByClassName("FeedBackCardDescription")[0].innerHTML = x;
+    }
+    function RouteNameForm() {
+        var x = document.getElementsByClassName("RouteNameInput")[0].value;
+        document.getElementsByClassName("FeedBackCardRouteName")[0].innerHTML = x;
+    }
+    function VehicleForm() {
+        var x = document.getElementsByClassName("VehicleInput")[0].value;
+        document.getElementsByClassName("FeedBackCardVehicle")[0].innerHTML = x;
+    }
+
+</script>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
