@@ -7,15 +7,17 @@
 }
 
 .formDisplay {
-    position: fixed;
-    box-shadow: 5px 5px black;
-    top: 17vh;
-    right: 2vw;
     height: 500px;
     max-width: 298px;
     display: grid;
     grid-template-rows: 70px 106px repeat(8, 26px);
     grid-template-columns: .1fr 1fr 1fr .1fr;
+}
+.CreateForm {
+    position: fixed;
+    box-shadow: 5px 5px black;
+    top: 17vh;
+    right: 2vw;
 }
 
     .formDisplay img {
