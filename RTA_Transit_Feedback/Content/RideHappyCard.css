@@ -12,7 +12,14 @@
     display: grid;
     grid-template-rows: 70px 106px repeat(8, 26px);
     grid-template-columns: .1fr 1fr 1fr .1fr;
+    margin:0px;
 }
+
+.IndexForm {
+    margin: 5px;
+    box-shadow: 3px 4px 12px 1px black;
+}
+
 .CreateForm {
     position: fixed;
     box-shadow: 5px 5px black;
@@ -82,7 +89,8 @@
 .FeedBackCardDescription{
     grid-column:2 /span 2;
     grid-row: 2/span 1;
-    margin:0;
+    margin-top:7px;
+    line-height:25px;
 }
 .FeedBackCardRouteName{
     grid-row:  4 /span 1;
@@ -95,9 +103,9 @@
     margin-left:90px;
 }
 .FeedBackCardDate {
-    grid-column: 2 /span 1;
+    grid-column: 2 /span 2;
     grid-row: 3 /span 2;
-    margin-left: 70px;
+    margin-left: 58px;
 }
 .FeedBackCardTime{
     grid-column: 3/span 1;
