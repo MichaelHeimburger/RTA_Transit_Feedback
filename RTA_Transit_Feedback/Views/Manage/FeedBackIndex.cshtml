@@ -9,12 +9,26 @@
     @foreach (var item in Model)
     {
 
-        <div class="cardindex">
-            @*<img class="ridehappycard" src="~/images/RideHappy.jpg" />*@
-            <p class="feedbackdescriptionc indexcard">
-                @Url.Content(item.FeedbackDescription)
-            </p>
+        <div class="formDisplay IndexForm">
+            <img src="~/images/RideHappy.jpg" />
+            <p class="FeedBackCardDescription RideHappyCardText">@Url.Content(item.FeedbackDescription)</p>
+            <p class="FeedBackCardRouteName RideHappyCardText">@Url.Content(item.RouteName)</p>
+            <p class="FeedBackCardVehicle RideHappyCardText">@Url.Content(item.VehNum)</p>
+            <p class="FeedBackCardDate RideHappyCardText">@Html.DisplayFor(Model=>item.DateofRide)</p>
+            <p class="FeedBackCardTime RideHappyCardText">@Url.Content(item.TimeofRide.ToString())</p>
 
+            <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(item.Customers.FirstName)</p>
+            <p class="FeedBackCardLastName RideHappyCardText">@Url.Content(item.Customers.LastName)</p>
+            <p class="FeedBackCardAddressOne RideHappyCardText">@Url.Content(item.Customers.AddressL1)</p>
+            <p class="FeedBackCardAddressTwo RideHappyCardText">@Url.Content(item.Customers.AddressL2)</p>
+            <p class="FeedBackCardCity RideHappyCardText">@Url.Content(item.Customers.City)</p>
+            <p class="FeedBackCardState RideHappyCardText">@Url.Content(item.Customers.state.stateName)</p>
+            <p class="FeedBackCardPhone RideHappyCardText">@Url.Content(item.Customers.PhoneNum)</p>
+            <p class="FeedBackCardZip RideHappyCardText">@Url.Content(item.Customers.Zip)</p>
+            <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
         </div>
+
+
+
     }
 </div>
