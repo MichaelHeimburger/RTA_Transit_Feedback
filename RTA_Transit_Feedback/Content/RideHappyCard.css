@@ -29,6 +29,7 @@
 .FeedBackCardFirstName {
     grid-column: 2 /span 2;
     grid-row: 6 /span 1;
+    margin-left:40px;
 }
 
 .FeedBackCardLastName {
@@ -39,7 +40,7 @@
 .FeedBackCardAddressOne {
     grid-column: 2 /span 2;
     grid-row: 7 /span 1;
-    margin-left: 0;
+    margin-left: 10PX;
     transform: scale(.7,1);
 }
 
@@ -54,8 +55,9 @@
 }
 
 .FeedBackCardState {
-    grid-column: 2 /span 1;
+    grid-column: 2 /span 2;
     grid-row: 9 /span 1;
+    margin-left:40px;
 }
 
 .FeedBackCardPhone {
@@ -66,7 +68,7 @@
 .FeedBackCardZip {
     grid-column: 3 /span 1;
     grid-row: 9 /span 1;
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 .FeedBackCardEmail {
