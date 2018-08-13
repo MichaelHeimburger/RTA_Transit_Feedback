@@ -16,12 +16,6 @@ namespace RTA_Transit_Feedback.Controllers
 {
     public class FeedBackFormsController : Controller
     {
-
-        public ActionResult ModalPopUp()
-        {
-            return View();
-        }
-
         private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         // GET: FeedBackForms
@@ -78,7 +72,7 @@ namespace RTA_Transit_Feedback.Controllers
                
                     return View(x);
             }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("FeedBackIndex", "Manage");
         }
 
         // GET: FeedBackForms/Details/5
@@ -244,7 +238,10 @@ namespace RTA_Transit_Feedback.Controllers
 
         }
 
-
+        public ActionResult ModalPopUp()
+        {
+            return View();
+        }
 
 
 

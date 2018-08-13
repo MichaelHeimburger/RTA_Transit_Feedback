@@ -77,3 +77,28 @@
     margin-left: 10px;
     transform: scale(.7,1);
 }
+.FeedBackCardDescription{
+    grid-column:2 /span 2;
+    grid-row: 2/span 1;
+    margin:0;
+}
+.FeedBackCardRouteName{
+    grid-row:  4 /span 1;
+    grid-column:2 /span 1;
+    margin-left:105px;
+}
+.FeedBackCardVehicle {
+    grid-row: 5 /span 1;
+    grid-column: 2/span 1;
+    margin-left:90px;
+}
+.FeedBackCardDate {
+    grid-column: 2 /span 1;
+    grid-row: 3 /span 2;
+    margin-left: 70px;
+}
+.FeedBackCardTime{
+    grid-column: 3/span 1;
+    grid-row: 3 /span 1;
+    margin-left:60px;
+}
