@@ -29,7 +29,7 @@ namespace RTA_Transit_Feedback.Controllers
         {
            if(User.IsInRole("Admin"))
             {
-                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).ToList();
+                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).OrderByDescending(p => p.BatchID).ToList();
                 return new ViewAsPdf("PrintBatch", batchedList)
                 {
                     PageOrientation = Orientation.Portrait,
