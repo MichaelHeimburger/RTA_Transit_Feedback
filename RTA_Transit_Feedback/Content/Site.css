@@ -39,18 +39,24 @@ nav a {
 
 
 /*--------------------------------home index---------------------------*/
-.indexrowone{
-    height:50vw;
-    background-color:darkslateblue;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+.indexrowone {
+    height: 700px;
+    background-color: darkslateblue;
+    background-image: url('../images/RTAAirport.jpg');
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-repeat:no-repeat;
+   background-size:cover;
+
 }
-.text p{
-    color:whitesmoke;
-    font-size:5vw;
-    margin-right:80vw;
-    margin-bottom:50px;
+.text {
+    margin-right:1200px;
+    margin-bottom:100px
+}
+.text p {
+    color: whitesmoke;
+    font-size: 70px;
 }
 .button {
     background-color: #4CAF50; /* Green */
@@ -61,7 +67,7 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     height:60px;
-    margin-top:3vw;
+    margin-top:50px;
 }
 .button:hover{
     box-shadow: inset 0px 0px 5px 5px white;
@@ -82,9 +88,8 @@ a:hover{
 .indexrowthreecoltwo{
     background-color:white;
 }
-.text{
-    margin:50px;
-}
+
+
 /*------------------Customer create styleing-------------------*/
 
 

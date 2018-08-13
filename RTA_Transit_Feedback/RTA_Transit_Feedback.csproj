@@ -284,6 +284,7 @@
     <Content Include="images\pexels-photo-808700.jpeg" />
     <Content Include="images\RideHappy.jpg" />
     <Content Include="images\RTA.png" />
+    <Content Include="images\RTAAirport.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
