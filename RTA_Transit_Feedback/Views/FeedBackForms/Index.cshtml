@@ -11,32 +11,42 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Batch All:    @Html.EditorFor(model => model.BatchAll)</p>
-                @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
-            </div>
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Batch All:    @Html.EditorFor(model => model.BatchAll)</p>
+            @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
         </div>
-        @for (int i = 0; Model.Forms.Count > i; i++)
+    </div>
+    <div class="row">
+   <div class="col">
+       
+
+   </div>
+    </div>
+    @{var colorswap = false;}
+    @for (int i = 0; Model.Forms.Count > i; i++)
+    {
+
+        @Html.HiddenFor(model => Model.Forms[i].FeedbackID)
+        @Html.HiddenFor(model => Model.Forms[i].FeedbackDescription)
+        @Html.HiddenFor(model => Model.Forms[i].DateofRide)
+        @Html.HiddenFor(model => Model.Forms[i].TimeofRide)
+        @Html.HiddenFor(model => Model.Forms[i].RouteName)
+        @Html.HiddenFor(model => Model.Forms[i].VehNum)
+        @Html.HiddenFor(model => Model.Forms[i].CustomerID)
+        @Html.HiddenFor(model => Model.Forms[i].Batch)
+        @Html.HiddenFor(model => Model.Forms[i].BatchID)
+        @Html.HiddenFor(model => Model.Forms[i].Customers)
+        @Html.HiddenFor(model => Model.Forms[i].isDanger)
+
+
+
+        if (colorswap == false)
         {
-
-            @Html.HiddenFor(model => Model.Forms[i].FeedbackID)
-            @Html.HiddenFor(model => Model.Forms[i].FeedbackDescription)
-            @Html.HiddenFor(model => Model.Forms[i].DateofRide)
-            @Html.HiddenFor(model => Model.Forms[i].TimeofRide)
-            @Html.HiddenFor(model => Model.Forms[i].RouteName)
-            @Html.HiddenFor(model => Model.Forms[i].VehNum)
-            @Html.HiddenFor(model => Model.Forms[i].CustomerID)
-            @Html.HiddenFor(model => Model.Forms[i].Batch)
-            @Html.HiddenFor(model => Model.Forms[i].BatchID)
-            @Html.HiddenFor(model => Model.Forms[i].Customers)
-            @Html.HiddenFor(model => Model.Forms[i].isDanger)
-
-
-
-            <div class="row">
+            colorswap = true;
+            <div class="row" id="indexfeedbackcolor">
                 <div class="col">
                     <p>@Html.DisplayFor(model => Model.Forms[i].DateofRide)</p>
                 </div>
@@ -60,14 +70,45 @@
                 </div>
                 @Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID }) |
             </div>
+
+        }
+        else
+        {
+            <div class="row" id="indexfeedbackcolortwo">
+                <div class="col">
+                    <p>@Html.DisplayFor(model => Model.Forms[i].DateofRide)</p>
+                </div>
+                <div class="col">
+                    @*Changes bool for at risk feedback*@
+                    @if (Model.Forms[i].isDanger == true)
+                    {
+                        @*Highlights At Risk Feeback*@
+                        <p id="feedbackList" style="color:red">@Url.Content(((int)((DateTime.Now - Model.Forms[i].DateofRide).TotalDays)).ToString())</p>
+                    }
+                    else
+                    {
+                        <p>@Url.Content(((int)((DateTime.Now - Model.Forms[i].DateofRide).TotalDays)).ToString())</p>
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="col">
+                        @Html.CheckBoxFor(model => model.Forms[i].toBatch)
+                        @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
+                    </div>
+                </div>
+                @Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID }) |
+            </div>
+            colorswap = false;
         }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Set Selected to Batch" class="btn btn-default" />
-            </div>
+    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Set Selected to Batch" class="btn btn-default" />
         </div>
     </div>
+</div>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

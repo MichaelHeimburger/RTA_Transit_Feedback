@@ -56,7 +56,7 @@ namespace RTA_Transit_Feedback.Controllers
             {
                 FeedBackRelayViewModel x = new FeedBackRelayViewModel();
                 FeedBackForm feedBackForm = new FeedBackForm();
-                x.Forms = (from a in db.FeedBackForm where a.BatchID == null select a).ToList(); //gets all the forms that have not been batched and assigns them to the viewmodel
+                x.Forms = (from a in db.FeedBackForm where a.BatchID == null select a).OrderByDescending(p => p.DateofRide).ToList(); //gets all the forms that have not been batched and assigns them to the viewmodel
                 x.BatchAll = false; // initlaizeing the batchall variable in the viewmodel
                 foreach (var item in x.Forms)
                 {

@@ -97,11 +97,18 @@ a:hover{
 #feedbackList {
    color:red
 }
+#indexfeedbackcolor{
+background-color: grey!important;
+}
+
+#indexfeedbackcolortwo{
+    background-color: darkslategrey !important;
+}
 /*------------------Feedback Index For Customers-------------------*/
-.rolodex{
-    display:inline-flex;
+.rolodex {
+    display: inline-flex;
     /*align-items:flex-end;*/
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     /*justify-content:flex-end;
     align-content:flex-start;*/
 }
