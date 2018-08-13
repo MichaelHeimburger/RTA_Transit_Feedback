@@ -18,8 +18,13 @@ namespace RTA_Transit_Feedback
 
     public class BatchmetaData
     {
+        [DisplayName("Batch Number")]
         public int BatchID { get; set; }
         [DisplayName("Tracking Number ")]
         public string TrackingNo { get; set; }
+
     }
 }
+    
+
+    

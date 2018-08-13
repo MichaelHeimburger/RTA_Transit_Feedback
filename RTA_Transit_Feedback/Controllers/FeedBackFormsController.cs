@@ -16,6 +16,12 @@ namespace RTA_Transit_Feedback.Controllers
 {
     public class FeedBackFormsController : Controller
     {
+
+        public ActionResult ModalPopUp()
+        {
+            return View();
+        }
+
         private TransitFeedbackAppDBv1Entities1 db = new TransitFeedbackAppDBv1Entities1();
 
         // GET: FeedBackForms
@@ -100,22 +106,20 @@ namespace RTA_Transit_Feedback.Controllers
         public ActionResult Create()
         {
             var validationCheck = new ValidationCheck();
-            var feedBackCreateViewModel = new FeedBackCreateViewModel();
             var currentUserId = User.Identity.GetUserId();
-            if(currentUserId !=null)
+            if (currentUserId !=null)
             {
 
         
                  if (validationCheck.HasCustomerInfo(currentUserId))
                  {
+                    var feedBackCreateViewModel = new FeedBackCreateViewModel();
                  ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo");
                  ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
-                    var thiscustomer = (from a in db.Customers where a.Id == currentUserId select a).ToList()[0];
-                    var newfeedback = new FeedBackForm();
-                    feedBackCreateViewModel.state = (from z in db.state where thiscustomer.stateID == z.stateID select z.stateName).ToList()[0];
-                    feedBackCreateViewModel.customers = thiscustomer;
-                    feedBackCreateViewModel.feedBackForm = newfeedback;
-                 return View(feedBackCreateViewModel);
+                    feedBackCreateViewModel.customers = (from a in db.Customers where a.Id == currentUserId select a).ToList()[0];
+                    feedBackCreateViewModel.state = (from z in db.state where feedBackCreateViewModel.customers.stateID == z.stateID select z.stateName).ToList()[0];
+
+                    return View(feedBackCreateViewModel);
                  }
                 return RedirectToAction("Create", "Customers");
 
@@ -129,21 +133,21 @@ namespace RTA_Transit_Feedback.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FeedbackID,FeedbackDescription,DateofRide,TimeofRide,RouteName,VehNum,CustomerID,BatchID")] FeedBackForm feedBackForm)
+        public ActionResult Create(FeedBackCreateViewModel feedBackCreateViewModel)
         {
             //customers.Id = User.Identity.GetUserId();
             var x = User.Identity.GetUserId();//gets id of current user logged in
-            feedBackForm.CustomerID = (from c in db.Customers where c.Id == x select c.CustomerID).ToList()[0];
+            feedBackCreateViewModel.feedBackForm.CustomerID = (from c in db.Customers where c.Id == x select c.CustomerID).ToList()[0];
             if (ModelState.IsValid)
             {
-                db.FeedBackForm.Add(feedBackForm);
+                db.FeedBackForm.Add(feedBackCreateViewModel.feedBackForm);
                 db.SaveChanges();
                 return RedirectToAction("FeedBackIndex", "Manage");
             }
 
             //ViewBag.BatchID = new SelectList(db.Batch, "BatchID", "TrackingNo", feedBackForm.BatchID);
             //ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName", feedBackForm.CustomerID);
-            return View(feedBackForm);
+            return View(feedBackCreateViewModel);
         }
 
         // GET: FeedBackForms/Edit/5
@@ -233,10 +237,14 @@ namespace RTA_Transit_Feedback.Controllers
 
 
 
+
+
             }
             return RedirectToAction("Index", "Home");
 
         }
+
+
 
 
 

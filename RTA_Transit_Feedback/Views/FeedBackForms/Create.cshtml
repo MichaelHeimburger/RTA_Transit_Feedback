@@ -7,10 +7,12 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>FeedBackForm</h4>
         <hr />
@@ -23,102 +25,169 @@
                 @Html.ValidationMessageFor(model => model.feedBackForm.FeedbackDescription, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.feedBackForm.DateofRide, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.feedBackForm.DateofRide, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.feedBackForm.DateofRide, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.feedBackForm.TimeofRide, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.feedBackForm.TimeofRide, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.feedBackForm.TimeofRide, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group" oninput="RouteNameForm()">
-            @Html.LabelFor(model => model.feedBackForm.RouteName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.feedBackForm.RouteName, new { htmlAttributes = new { @class = "form-control RouteNameInput", placeholder = "Route 3, Red Line, HealthLine" } })
-                @Html.ValidationMessageFor(model => model.feedBackForm.RouteName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.feedBackForm.VehNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10" oninput="VehicleForm()">
-                @Html.EditorFor(model => model.feedBackForm.VehNum, new { htmlAttributes = new { @class = "form-control VehicleForm", placeholder = "e.g. 1026" } })
-                @Html.ValidationMessageFor(model => model.feedBackForm.VehNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
-}
 
-    <div class="formDisplay">
-        <img src="~/images/RideHappy.jpg" />
-        <p class="FeedBackCardDescription RideHappyCardText">test</p>
-        <p class="FeedBackCardRouteName RideHappyCardText">test</p>
-        <p class="FeedBackCardVehicle RideHappyCardText">test</p>
-        <p class="FeedBackCardDescription RideHappyCardText">test</p>
+            <div class="form-group">
+                @Html.LabelFor(model => model.feedBackForm.DateofRide, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10" oninput="DateForm()">
+                    @Html.TextBoxFor(model => model.feedBackForm.DateofRide, new { type = "date", @class = "DateInput"})
+                    @Html.ValidationMessageFor(model => model.feedBackForm.DateofRide, "", new { @class = "text-danger" })
 
-        <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(Model.customers.FirstName)</p>
-        <p class="FeedBackCardLastName RideHappyCardText">@Url.Content(Model.customers.LastName)</p>
-        <p class="FeedBackCardAddressOne RideHappyCardText">@Url.Content(Model.customers.AddressL1)</p>
-        <p class="FeedBackCardAddressTwo RideHappyCardText">@Url.Content(Model.customers.AddressL2)</p>
-        <p class="FeedBackCardCity RideHappyCardText">@Url.Content(Model.customers.City)</p>
-        <p class="FeedBackCardState RideHappyCardText">@Url.Content(Model.state)</p>
-        <p class="FeedBackCardPhone RideHappyCardText">@Url.Content(Model.customers.PhoneNum)</p>
-        <p class="FeedBackCardZip RideHappyCardText">@Url.Content(Model.customers.Zip)</p>
-        <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
-    </div>
-<style>
-    .FeedBackCardDescription{
-        grid-column: 2/span 2;
-        grid-row:2/span 1;
-        margin-left:0;
-    }
-    .FeedBackCardRouteName {
-        grid-column: 3/span 1;
-        grid-row: 4/span 1;
-    }
-    .FeedBackCardVehicle{
-        grid-column: 1/span 2;
-        grid-row: 5/span 1;
-    }
+                </div>
+            </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.feedBackForm.TimeofRide, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" oninput="TimeForm()">
+                        @Html.TextBoxFor(model => model.feedBackForm.TimeofRide, new { type = "time", @class="TimeInput" })
+                        @Html.ValidationMessageFor(model => model.feedBackForm.TimeofRide, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="form-group" oninput="RouteNameForm()">
+                    @Html.LabelFor(model => model.feedBackForm.RouteName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.feedBackForm.RouteName, new { htmlAttributes = new { @class = "form-control RouteNameInput", placeholder = "Route 3, Red Line, HealthLine" } })
+                        @Html.ValidationMessageFor(model => model.feedBackForm.RouteName, "", new { @class = "text-danger" })
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.feedBackForm.VehNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10" oninput="VehicleForm()">
+                            @Html.EditorFor(model => model.feedBackForm.VehNum, new { htmlAttributes = new { @class = "form-control VehicleInput", placeholder = "e.g. 1026" } })
+                            @Html.ValidationMessageFor(model => model.feedBackForm.VehNum, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                                </div>
+                        }
+
+                        <div class="formDisplay">
+                            <img src="~/images/RideHappy.jpg" />
+                            <p class="FeedBackCardDescription RideHappyCardText"></p>
+                            <p class="FeedBackCardRouteName RideHappyCardText"></p>
+                            <p class="FeedBackCardVehicle RideHappyCardText"></p>
+                            <p class="FeedBackCardDate RideHappyCardText"></p>
+                            <p class="FeedBackCardTime RideHappyCardText"></p>
+
+                            <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(Model.customers.FirstName)</p>
+                            <p class="FeedBackCardLastName RideHappyCardText">@Url.Content(Model.customers.LastName)</p>
+                            <p class="FeedBackCardAddressOne RideHappyCardText">@Url.Content(Model.customers.AddressL1)</p>
+                            <p class="FeedBackCardAddressTwo RideHappyCardText">@Url.Content(Model.customers.AddressL2)</p>
+                            <p class="FeedBackCardCity RideHappyCardText">@Url.Content(Model.customers.City)</p>
+                            <p class="FeedBackCardState RideHappyCardText">@Url.Content(Model.state)</p>
+                            <p class="FeedBackCardPhone RideHappyCardText">@Url.Content(Model.customers.PhoneNum)</p>
+                            <p class="FeedBackCardZip RideHappyCardText">@Url.Content(Model.customers.Zip)</p>
+                            <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
+                        </div>
+                        <style>
+                            .FeedBackCardDescription {
+                                grid-column: 2/span 2;
+                                grid-row: 2/span 1;
+                                margin-left: 0;
+                            }
+
+                            .FeedBackCardRouteName {
+                                grid-column: 2/span 2;
+                                grid-row: 4/span 1;
+                                margin-left:100px;
+                            }
+                            .FeedBackCardVehicle {
+                                grid-column: 2/span 2;
+                                grid-row: 5/span 1;
+                                margin-left:90px;
+                            }
+                            .FeedBackCardDate{
+                                grid-column:2 /span 1;
+                                grid-row:3 /span 1;
+                                margin-left:60px;
+                            }
+                            .FeedBackCardTime{
+                                grid-column:3 /span 1;
+                                grid-row:3 /span 1;
+                                margin-left:60px;
+                            }
+                        </style>
+                        <script>
+                            function DescriptionForm() {
+                                var x = document.getElementsByClassName("DescriptionInput")[0].value;
+                                document.getElementsByClassName("FeedBackCardDescription")[0].innerHTML = x;
+                            }
+                            function RouteNameForm() {
+                                var x = document.getElementsByClassName("RouteNameInput")[0].value;
+                                document.getElementsByClassName("FeedBackCardRouteName")[0].innerHTML = x;
+                            }
+                            function VehicleForm() {
+                                var x = document.getElementsByClassName("VehicleInput")[0].value;
+                                document.getElementsByClassName("FeedBackCardVehicle")[0].innerHTML = x;
+                            }
+                            function DateForm() {
+                                var x = document.getElementsByClassName("DateInput")[0].value;
+                                document.getElementsByClassName("FeedBackCardDate")[0].innerHTML = x;
+                            }
+                            function TimeForm() {
+                                var x = document.getElementsByClassName("TimeInput")[0].value;
+                                document.getElementsByClassName("FeedBackCardTime")[0].innerHTML = x;
+                            }
+
+                        </script>
 
 
-</style>
-<script>
-    function DescriptionForm() {
-        var x = document.getElementsByClassName("DescriptionInput")[0].value;
-        document.getElementsByClassName("FeedBackCardDescription")[0].innerHTML = x;
-    }
-    function RouteNameForm() {
-        var x = document.getElementsByClassName("RouteNameInput")[0].value;
-        document.getElementsByClassName("FeedBackCardRouteName")[0].innerHTML = x;
-    }
-    function VehicleForm() {
-        var x = document.getElementsByClassName("VehicleInput")[0].value;
-        document.getElementsByClassName("FeedBackCardVehicle")[0].innerHTML = x;
-    }
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
 
-</script>
+                        @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                        </script>
+
+
+                        <script type="text/javascript">
+
+                            $(document).ready(function () {
+                                $("#btnShowModal").click(function () {
+                                    $("#loginModal").modal('show');
+                                });
+
+                                $("#btnHideModal").click(function () {
+                                    $("#loginModal").modal('hide');
+                                });
+                            });
+                        </script>
+
+                        <script>
+                            var nowTemp = new Date();
+                            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+                            console.log("logged");
+
+
+                            var checkin = $('#dpd1').datepicker({
+                                onRender: function (date) {
+                                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                                }
+                            }).on('changeDate', function (ev) {
+                                if (ev.date.valueOf() > checkout.date.valueOf()) {
+                                    var newDate = new Date(ev.date)
+                                    newDate.setDate(newDate.getDate() + 1);
+                                    checkout.setValue(newDate);
+                                }
+                                checkin.hide();
+                                $('#dpd2')[0].focus();
+                            }).data('datepicker');
+                            var checkout = $('#dpd2').datepicker({
+                                onRender: function (date) {
+                                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                                }
+                            }).on('changeDate', function (ev) {
+                                checkout.hide();
+                            }).data('datepicker');
+                        </script>

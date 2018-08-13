@@ -8,7 +8,9 @@
     font-weight: 400;
     width: 480px;
     font-family: 'Oswald', sans-serif;
-    left: 210px;
+    text-align: left;
+    left: 275px;
+    top: 25px;
 }
 
 .feedbackLn1 {

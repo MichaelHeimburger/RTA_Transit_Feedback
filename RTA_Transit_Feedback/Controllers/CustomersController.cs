@@ -66,6 +66,7 @@ namespace RTA_Transit_Feedback.Controllers
             customers.Id = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
+                if (customers.AddressL2 == null) { customers.AddressL2 = " "; }
                 db.Customers.Add(customers);
                 db.SaveChanges();
                 return RedirectToAction("Create","FeedbackForms");

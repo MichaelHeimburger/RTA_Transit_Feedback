@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Rotativa;
+using Rotativa.Options;
 using RTA_Transit_Feedback;
 
 namespace RTA_Transit_Feedback.Controllers
@@ -29,7 +30,14 @@ namespace RTA_Transit_Feedback.Controllers
            if(User.IsInRole("Admin"))
             {
                 var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).ToList();
-                return new ViewAsPdf("PrintBatch", batchedList);
+                return new ViewAsPdf("PrintBatch", batchedList)
+                {
+                    PageOrientation = Orientation.Portrait,
+                    //PageWidth = 88.9,
+                    //PageHeight = 152.4,
+                    PageMargins = new Margins(0, 0, 0, 0),
+                    CustomSwitches = "--disable-smart-shrinking"
+                };
             }
             return RedirectToAction("Index", "Home");
         }
