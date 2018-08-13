@@ -59,7 +59,7 @@
         </div>
     </div>
     <button id="btnShowModal" type="button"
-            class="btn btn-sm btn-default pull-left col-lg-11 button button4">
+            class="btn btn btn-default pull-left col-lg-4 button">
         Continue
     </button>
 
@@ -76,9 +76,28 @@
                     <form>
                         <h2>Ready to submit?</h2>
                         <p>Your feedback can't be changed after being submitted. Press Submit to continue, or Cancel to go back.</p>
-
                     </form>
                 </div>
+
+                @*<div class="formDisplay CreateForm">
+                    <img src="~/images/RideHappy.jpg" />
+                    <p class="FeedBackCardDescription RideHappyCardText"></p>
+                    <p class="FeedBackCardRouteName RideHappyCardText"></p>
+                    <p class="FeedBackCardVehicle RideHappyCardText"></p>
+                    <p class="FeedBackCardDate RideHappyCardText"></p>
+                    <p class="FeedBackCardTime RideHappyCardText"></p>
+
+                    <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(Model.customers.FirstName)</p>
+                    <p class="FeedBackCardLastName RideHappyCardText">@Url.Content(Model.customers.LastName)</p>
+                    <p class="FeedBackCardAddressOne RideHappyCardText">@Url.Content(Model.customers.AddressL1)</p>
+                    <p class="FeedBackCardAddressTwo RideHappyCardText">@Url.Content(Model.customers.AddressL2)</p>
+                    <p class="FeedBackCardCity RideHappyCardText">@Url.Content(Model.customers.City)</p>
+                    <p class="FeedBackCardState RideHappyCardText">@Url.Content(Model.state)</p>
+                    <p class="FeedBackCardPhone RideHappyCardText">@Url.Content(Model.customers.PhoneNum)</p>
+                    <p class="FeedBackCardZip RideHappyCardText">@Url.Content(Model.customers.Zip)</p>
+                    <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
+                </div>*@
+
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary button button4">Submit</button>
                     <button type="button" id="btnHideModal" class="btn btn-primary button button4">Cancel</button>
