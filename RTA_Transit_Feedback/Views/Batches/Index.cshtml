@@ -7,43 +7,74 @@
 <h2>Manage Batches</h2>
 
 
-<table class="table">
+<div class="container-fluid">
 
-    <tr>
-        <th>
+    <div class="row">
+        <div class="col">
             @Html.DisplayNameFor(model => model.BatchID)
-        </th>
-        <th>
+        </div>
+        <div class="col">
+            Feedback in Batch
+        </div>
+        <div class="col">
             @Html.DisplayNameFor(model => model.TrackingNo)
-        </th>
-        <th>
+        </div>
+        <div class="col">
             Batch Functions
-        </th>
+        </div>
 
-    </tr>
-    
-    )
+    </div>
 
-        @foreach (var item in Model)
+
+    @{var colorswap = false;}
+    @foreach (var item in Model)
+    {
+
+        if (colorswap == false)
         {
-    <tr>
-            
-        <td>
-            @Html.DisplayFor(model => item.BatchID)
-        </td>
-        <td>
-            @(item.FeedBackForm.Count())
-        </td>
-        <td>
-            <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.BatchID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
-            @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
-            @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
-        </td>
-    </tr>
+            colorswap = true;
+            <div class="row"  id="indexfeedbackcolor">
+
+                <div class="col">
+                    @Html.DisplayFor(model => item.BatchID)
+                </div>
+                <div class="col">
+                    @(item.FeedBackForm.Count())
+                </div>
+                <class class="col">
+                    <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
+                </class>
+                <div class="col">
+                    @Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
+                    @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
+                </div>
+            </div>
+
+        }
+        else
+        {
+            colorswap = false;
+            <div class="row" id="indexfeedbackcolortwo">
+                <div class="col">
+                    @Html.DisplayFor(model => item.BatchID)
+                </div>
+                <div class="col">
+                    @(item.FeedBackForm.Count())
+                </div>
+                <class class="col">
+                    <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
+                </class>
+                <div class="col">
+                    @Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
+                    @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
+                </div>
+            </div>
+        }
+
     }
 
-</table>
+</div>
