@@ -2,27 +2,47 @@
     ViewBag.Title = "Home Page";
 }
 <div class="row indexrowone">
-    <div class="text">
-        <p>
-            <span class="word wisteria headerscroll">        Ride Happy's Helping Hand.</span>
-            <span class="word belize headerscroll">           Easing Your Furture Expeditions.</span>
-            <span class="word pomegranate headerscroll">Facilitating Your Feedback.</span>
-            <span class="word green headerscroll">           Compling Your Comments.</span>
-            <span class="word midnight headerscroll">      Easing Your Furture Expeditions.</span>
-        </p>
+    <div class="hider">
+        <div class="indexscrollone">
+            Ride Happy's Helping Hand.<br />
+            Easing Your Furture Expeditions.<br />
+            Facilitating Your Feedback.<br />
+            Compling Your Comments.<br />
+            <br />
+        </div>
     </div>
+    <style>
+        .indexscrollone {
+            margin-left: 500px;
+            display: inline-block;
+            color: white;
+            position: relative;
+            font-size: 60px;
+            white-space: nowrap;
+            top: 0;
+            left: 0;
+            animation: move 9s;
+            animation-iteration-count: infinite;
+            animation-delay: 2s;
+        }
 
-        <button id="btnShowModal" class="button">
-            Start Here
-        </button>
-    
+        .hider {
+            float: left;
+            overflow: hidden;
+            position: relative;
+            height: 70px;
+        }
+    </style>
+    <button id="btnShowModal" class="button">
+        Start Here
+    </button>
+
 
 </div>
 
 <div class="row indexrowtwo">
     <p>
         The Greater Cleveland Transit Authority’s “Ride Happy” program allows passengers who are dissatisfied with their ride to send feedback and receive a one-trip farecard, free of charge. Currently, RTA only accepts feedback via postcard sent via First Class Mail and requires Ride Happy cards to be completed within 10 days of the ride.
-
         This website reduces the barrier of providing timely, legible feedback by allowing RTA riders to submit feedback via an online form.
     </p>
 </div>
@@ -31,23 +51,206 @@
     <div class="col indexrowthreecoltwo"></div>
 
 </div>
+<style>
+    .indexscrolltwo {
+        margin-top: -3px;
+        display: inline-block;
+        position: relative;
+        font-size: 18px;
+        white-space: nowrap;
+        top: 0;
+        left: 0;
+        animation: movetwo 9s;
+        animation-iteration-count: infinite;
+        animation-delay: 2s;
+    }
+
+    .hidertwo {
+        float: left;
+        overflow: hidden;
+        position: relative;
+        height: 25px;
+    }
+
+    .FeedBackCardVehicle {
+        margin-top: 2px;
+        margin-left: 50px;
+    }
+
+    .FeedBackCardRouteName {
+        margin-left: 50px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardDate {
+        margin-left: 30px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardTime {
+        margin-left: 30px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardFirstName {
+        margin-left: 15px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardLastName {
+        margin-left: 0px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardAddressOne {
+        margin-left: -10px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardAddressTwo {
+        margin-left: 10px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardCity {
+        margin-left: 10px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardState {
+        margin-left: 15px;
+    }
+
+    .FeedBackCardEmail {
+        margin-left: -5px;
+        margin-top: 2px;
+    }
+
+    .FeedBackCardPhone {
+        margin-left: 15px;
+        margin-top: 1px;
+        transform: scale(.9,1);
+    }
+
+    .FeedBackCardZip {
+        margin-left: 15px;
+        margin-top: 2px;
+    }
+</style>
 <div class="formDisplay HomeCard">
     <img src="~/images/RideHappy.jpg" />
-    <p class="FeedBackCardDescription RideHappyCardText"></p>
-    <p class="FeedBackCardRouteName RideHappyCardText"></p>
-    <p class="FeedBackCardVehicle RideHappyCardText"></p>
-    <p class="FeedBackCardDate RideHappyCardText"></p>
-    <p class="FeedBackCardTime RideHappyCardText"></p>
-
-    <p class="FeedBackCardFirstName RideHappyCardText"></p>
-    <p class="FeedBackCardLastName RideHappyCardText"></p>
-    <p class="FeedBackCardAddressOne RideHappyCardText"></p>
-    <p class="FeedBackCardAddressTwo RideHappyCardText"></p>
-    <p class="FeedBackCardCity RideHappyCardText"></p>
-    <p class="FeedBackCardState RideHappyCardText"></p>
-    <p class="FeedBackCardPhone RideHappyCardText"></p>
-    <p class="FeedBackCardZip RideHappyCardText"></p>
-    <p class="FeedBackCardEmail RideHappyCardText"></p>
+    <div class="hidertwo FeedBackCardDescription ">
+        <div class="FeedBackCardDescription RideHappyCardText indexscrolltwo">
+            My bus was 17 minutes late! <br />
+            Fairbox Broken couldnt scan.<br />
+            Air conditioner wasnt working<br />
+            Bike coudlnt fit on front rack <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardRouteName">
+        <div class="FeedBackCardRouteName RideHappyCardText indexscrolltwo">
+            51<br />
+            64 <br />
+            13B <br />
+            RedLine <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardVehicle">
+        <div class="FeedBackCardVehicle RideHappyCardText indexscrolltwo">
+            2301<br />
+            4201 <br />
+            2021<br />
+            42 <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardDate">
+        <div class="FeedBackCardDate RideHappyCardText indexscrolltwo">
+            1/12/2018<br />
+            4/5/2018 <br />
+            5/6/2018 <br />
+            4/3/2018<br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardTime">
+        <div class="FeedBackCardTime RideHappyCardText indexscrolltwo">
+            7:30 AM<br />
+            6:40 PM <br />
+            12:20 PM <br />
+            10:21 AM<br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardFirstName">
+        <div class="FeedBackCardFirstName RideHappyCardText indexscrolltwo">
+            Davey <br />
+            John <br />
+            Lorem<br />
+            Rick <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardLastName">
+        <div class="FeedBackCardLastName RideHappyCardText indexscrolltwo">
+            Jones <br />
+            Doe <br />
+            Ipsum <br />
+            Steve <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardAddressOne">
+        <div class="FeedBackCardAddressOne RideHappyCardText indexscrolltwo">
+            56 South Locker Ln<br />
+            451 3rd Ave<br />
+            9085 Hanover St <br />
+            121 Shore Ave<br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardAddressTwo">
+        <div class="FeedBackCardAddressTwo RideHappyCardText indexscrolltwo">
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardCity">
+        <div class="FeedBackCardCity RideHappyCardText indexscrolltwo">
+            Bikini Bottom <br />
+            Fargo <br />
+            Cleveland <br />
+            Aspen<br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardPhone">
+        <div class="FeedBackCardPhone RideHappyCardPhone indexscrolltwo">
+            444-444-1234<br />
+            212-342-2122 <br />
+            440-123-4567 <br />
+            555-555-5555 <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardState">
+        <div class="FeedBackCardState RideHappyCardPhone indexscrolltwo">
+            California<br />
+            North Dakota <br />
+            Ohio <br />
+            Ohio <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardZip">
+        <div class="FeedBackCardZip RideHappyCardPhone indexscrolltwo">
+            90123 <br />
+            44131 <br />
+            44212 <br />
+            44145 <br />
+        </div>
+    </div>
+    <div class="hidertwo FeedBackCardEmail">
+        <div class="FeedBackCardEmail RideHappyCardPhone indexscrolltwo">
+            flyingdutchman@ships.com<br />
+            tractorfan2012@yahoo.com <br />
+            Dolarset@aol.com <br />
+            franklarrytom@gmail.com<br />
+        </div>
+    </div>
 </div>
 
 
@@ -59,68 +262,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 
 </script>
-<script>
-    var words = document.getElementsByClassName('word');
-    var wordArray = [];
-    var currentWord = 0;
-
-    words[currentWord].style.opacity = 1;
-    for (var i = 0; i < words.length; i++) {
-        splitLetters(words[i]);
-    }
-
-    function changeWord() {
-        var cw = wordArray[currentWord];
-        var nw = currentWord == words.length - 1 ? wordArray[0] : wordArray[currentWord + 1];
-        for (var i = 0; i < cw.length; i++) {
-            animateLetterOut(cw, i);
-        }
-
-        for (var i = 0; i < nw.length; i++) {
-            nw[i].className = 'letter behind';
-            nw[0].parentElement.style.opacity = 1;
-            animateLetterIn(nw, i);
-        }
-
-        currentWord = (currentWord == wordArray.length - 1) ? 0 : currentWord + 1;
-    }
-
-    function animateLetterOut(cw, i) {
-        setTimeout(function () {
-            cw[i].className = 'letter out';
-        }, i * 80);
-    }
-
-    function animateLetterIn(nw, i) {
-        setTimeout(function () {
-            nw[i].className = 'letter in';
-        }, 340 + (i * 80));
-    }
-
-    function splitLetters(word) {
-        var content = word.innerHTML;
-        word.innerHTML = '';
-        var letters = [];
-        for (var i = 0; i < content.length; i++) {
-            var letter = document.createElement('span');
-            letter.className = 'letter';
-            letter.innerHTML = content.charAt(i);
-            word.appendChild(letter);
-            letters.push(letter);
-        }
-
-        wordArray.push(letters);
-    }
-
-    changeWord();
-    setInterval(changeWord, 4000);
-
-
-</script>
-
-
-
-
 
 
 <script type="text/javascript">
@@ -136,35 +277,6 @@
     });
 </script>
 
-<style>
-
-    .word {
-        position: absolute;
-        opacity: 0;
-    }
-
-    .letter {
-        display: inline-block;
-        position: relative;
-        float: left;
-        transform: translateZ(25px);
-        transform-origin: 50% 50% 25px;
-    }
-
-        .letter.out {
-            transform: rotateX(90deg);
-            transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
-
-        .letter.behind {
-            transform: rotateX(-90deg);
-        }
-
-        .letter.in {
-            transform: rotateX(0deg);
-            transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-</style>
 
 <div class="modal fade" tabindex="-1" id="loginModal"
      data-keyboard="false" data-backdrop="static">
@@ -187,5 +299,3 @@
         </div>
     </div>
 </div>
-
-

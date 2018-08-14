@@ -1,6 +1,5 @@
-﻿
-.bodybg {
-    background-color: whtie;
+﻿.bodybg {
+    background-color: white;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -32,7 +31,8 @@ nav a {
     font-family: 'Roboto', sans-serif;
     color: black;
 }
- .navbar-brand {
+
+.navbar-brand {
     font-family: 'Roboto', sans-serif;
     color: black;
 }
@@ -46,18 +46,10 @@ nav a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-repeat:no-repeat;
-   background-size:cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-}
-.text {
-    margin-right:600px;
-    margin-bottom:100px
-}
-.text p {
-    color: whitesmoke;
-    font-size: 70px;
-}
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -70,13 +62,16 @@ nav a {
     box-shadow: 2px 2px 20px black;
     margin-top: 50px;
 }
-.button:hover{
-    box-shadow: inset 0px 0px 5px 5px white;
+
+    .button:hover {
+        box-shadow: inset 0px 0px 5px 5px white;
+    }
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
 }
-a:hover{
-    text-decoration:none;
-    color:inherit;
-}
+
 .indexrowtwo {
     background-color: #4CAF50;
     height: 300px;
@@ -85,33 +80,73 @@ a:hover{
     align-items: center;
     box-shadow: 0 -1px 20px black;
 }
+
     .indexrowtwo p {
         margin-left: 100px;
         margin-right: 100px;
         color: whitesmoke;
         text-shadow: -1px -1px 9px black;
-        font-weight:700;
+        font-weight: 700;
     }
-.indexrowthree{
-    height:400px;
-}
-.indexrowthreecolone{
-}
-.indexrowthreecoltwo{
+
+.indexrowthree {
+    background-color: black;
+    height: 40px;
 }
 
+.indexrowthreecolone {
+}
+
+.indexrowthreecoltwo {
+}
+
+@keyframes move {
+    0% {
+        top: 0px;
+    }
+
+    30% {
+        top: -120px;
+    }
+
+    60% {
+        top: -200px;
+    }
+
+    90% {
+        top: -280px;
+    }
+}
+
+@keyframes movetwo {
+    0% {
+        top: 0px;
+    }
+
+    30% {
+        top: -25px;
+    }
+
+    60% {
+        top: -50px;
+    }
+
+    90% {
+        top: -75px;
+    }
+}
 
 /*------------------Customer create styleing-------------------*/
 
 
-.lead{
-    color:white;
+.lead {
+    color: white;
 }
 /*------------------Feedback Index For Admins-------------------*/
 
 
 #feedbackList {
-   color:red
+    color: red
 }
 /*------------------Feedback Index For Customers-------------------*/
 .rolodex {
@@ -119,9 +154,10 @@ a:hover{
     flex-wrap: wrap;
     z-index: -5;
 }
-.indexcard{
-    overflow:hidden;
-              }
+
+.indexcard {
+    overflow: hidden;
+}
 
 /*Modal Styling*/
 

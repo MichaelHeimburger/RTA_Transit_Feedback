@@ -1,9 +1,9 @@
-﻿
-.RideHappyCardText {
+﻿.RideHappyCardText {
     margin-left: 30px;
     margin-top: 7px;
     font-size: 15px;
     font-weight: 100;
+    line-height: 26px;
 }
 
 .formDisplay {
@@ -14,20 +14,23 @@
     grid-template-columns: .1fr 1fr 1fr .1fr;
     margin: 0px;
 }
+
 .HomeCard {
     position: absolute;
-    top:200px;
+    top: 200px;
     z-index: 2;
-    left:105px;
+    left: 105px;
     box-shadow: 9px 9px 15px black;
 }
-.IndexForm {
 
+.IndexForm {
 }
+
 .WholeCardContainer {
     margin: 5px;
     box-shadow: 3px 4px 12px 1px black;
 }
+
 .CreateForm {
     position: fixed;
     box-shadow: 5px 4px 5px 0px black;
@@ -104,7 +107,6 @@
     grid-row: 2/span 1;
     margin-top: 7px;
     line-height: 26px;
-    font-weight: 600;
     font-size: 13px;
 }
 
@@ -116,7 +118,7 @@
 
 .FeedBackCardVehicle {
     grid-row: 5 /span 1;
-    grid-column: 2/span 1;
+    grid-column: 2/span 2;
     margin-left: 90px;
 }
 
@@ -131,4 +133,3 @@
     grid-row: 3 /span 1;
     margin-left: 81px;
 }
-
