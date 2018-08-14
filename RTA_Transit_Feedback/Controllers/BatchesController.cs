@@ -60,6 +60,12 @@ namespace RTA_Transit_Feedback.Controllers
             return View(batch);
         }
 
+        //public ActionResult BatchCount()
+        //{
+        //    var feedBackForms = (from a in db.FeedBackForm where a.BatchID == a.BatchID select a).OrderByDescending(p => p.BatchID).ToList();
+        //    return View();
+        //}
+
         //// GET: Batches/Create
         //public ActionResult Create()
         //{

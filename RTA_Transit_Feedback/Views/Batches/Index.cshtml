@@ -21,13 +21,18 @@
         </th>
 
     </tr>
+    
+    )
 
-
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
     <tr>
+            
         <td>
             @Html.DisplayFor(model => item.BatchID)
+        </td>
+        <td>
+            @(item.FeedBackForm.Count())
         </td>
         <td>
             <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>

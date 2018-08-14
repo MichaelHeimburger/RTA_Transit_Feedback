@@ -13,7 +13,7 @@
         <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_Customers_state" ManuallyRouted="false" />
         <AssociationConnector Association="TransitFeedbackAppDBv1Model.FK_FeedBackForm_Customers" ManuallyRouted="false" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.C__MigrationHistory" Width="1.5" PointX="8.375" PointY="5.75" />
-        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetRoles" Width="1.5" PointX="3.75" PointY="6" />
+        <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetRoles" Width="1.5" PointX="5.125" PointY="6.375" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUserClaims" Width="1.5" PointX="3" PointY="11.625" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUserLogins" Width="1.5" PointX="3" PointY="9.125" />
         <EntityTypeShape EntityType="TransitFeedbackAppDBv1Model.AspNetUsers" Width="1.5" PointX="0.75" PointY="0.75" />
