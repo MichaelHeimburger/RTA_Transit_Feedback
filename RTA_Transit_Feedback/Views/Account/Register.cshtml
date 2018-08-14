@@ -1,11 +1,13 @@
 ﻿@model RTA_Transit_Feedback.Models.RegisterViewModel
 @{
+    /**/
+
     ViewBag.Title = "Register";
 }
 
 <style>
     .bodybg {
-        background-color:white;
+        background-color: white;
     }
 </style>
 <h2>@ViewBag.Title.</h2>
@@ -16,10 +18,10 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+    <div class="form-group" oninput="Email()">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label"})
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control EmailInput" })
         </div>
     </div>
     <div class="form-group">
@@ -34,6 +36,9 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
+
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
@@ -44,3 +49,23 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<div class="formDisplay CreateForm">
+    <img src="~/images/RideHappy.jpg" />
+    <p class="FeedBackCardFirstName RideHappyCardText"></p>
+    <p class="FeedBackCardLastName RideHappyCardText"></p>
+    <p class="FeedBackCardAddressOne RideHappyCardText"></p>
+    <p class="FeedBackCardAddressTwo RideHappyCardText"></p>
+    <p class="FeedBackCardCity RideHappyCardText"></p>
+    <p class="FeedBackCardState RideHappyCardText"></p>
+    <p class="FeedBackCardPhone RideHappyCardText"></p>
+    <p class="FeedBackCardZip RideHappyCardText"></p>
+    <p class="FeedBackCardEmail RideHappyCardText"></p>
+</div>
+
+<script>
+    function Email() {
+        var x = document.getElementsByClassName("EmailInput")[0].value;
+        document.getElementsByClassName("FeedBackCardEmail")[0].innerHTML = x;
+    }
+</script>
