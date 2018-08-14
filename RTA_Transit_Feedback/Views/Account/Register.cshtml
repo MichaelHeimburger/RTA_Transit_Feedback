@@ -10,12 +10,12 @@
         background-color: white;
     }
 </style>
-<h2>@ViewBag.Title.</h2>
-<p>We will need your email address, in order to store your info for later use when you make another card.</p>
+<h2>Welcome</h2>
+<p>Before starting, you will need to create an account.</p>
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group" oninput="Email()">
