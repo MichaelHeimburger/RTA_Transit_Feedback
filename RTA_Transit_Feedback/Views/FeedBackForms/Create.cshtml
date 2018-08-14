@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Finish Your Card</h2>
 
 
 
@@ -14,8 +14,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>FeedBackForm</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group" oninput="DescriptionForm()">
             @Html.LabelFor(model => model.feedBackForm.FeedbackDescription, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -59,9 +58,11 @@
         </div>
     </div>
     <button id="btnShowModal" type="button"
-            class="btn btn btn-default pull-left col-lg-4 button">
+            class="btn btn-default">
         Continue
     </button>
+
+
 
     <div class="modal fade" tabindex="-1" id="loginModal"
          data-keyboard="false" data-backdrop="static">
@@ -99,8 +100,8 @@
                 </div>*@
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary button button4">Submit</button>
-                    <button type="button" id="btnHideModal" class="btn btn-primary button button4">Cancel</button>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="button" id="btnHideModal" class="btn btn-default">Cancel</button>
                 </div>
             </div>
         </div>

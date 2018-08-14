@@ -23,7 +23,7 @@ namespace RTA_Transit_Feedback
         [MaxLength(150, ErrorMessage = "Your comment was too long. Please enter a comment of at least 15 characters, but less than 150 characters.")]
         [DataType(DataType.MultilineText)]
         [Required]
-        [DisplayName("Feedback Description")]
+        [DisplayName("Why weren't you happy?")]
         public string FeedbackDescription { get; set; }
         [Required]
         [DisplayName("Date of Ride")]
