@@ -8,13 +8,30 @@
     <hr />
     @foreach (var item in Model)
     {
+    <div class="WholeCardContainer">
 
+        @if (item.Batch != null)
+        {
+            if (item.Batch.TrackingNo != null)
+            {<p style="background-color:lightgreen;margin:0">
+    <a style="background-color:lightgreen;margin:0" href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", Url.Content(item.Batch.TrackingNo))' target="_blank">@Url.Content(item.Batch.TrackingNo)</a>
+</p>
+            }
+            else
+            {
+                <p style="background-color:yellow;margin:0">Status: Ready to Ship</p>
+            }
+        }
+        else
+        {
+            <p style="background-color:coral;margin:0">Status: Pending</p>
+        }
         <div class="formDisplay IndexForm">
             <img src="~/images/RideHappy.jpg" />
             <p class="FeedBackCardDescription RideHappyCardText">@Url.Content(item.FeedbackDescription)</p>
             <p class="FeedBackCardRouteName RideHappyCardText">@Url.Content(item.RouteName)</p>
             <p class="FeedBackCardVehicle RideHappyCardText">@Url.Content(item.VehNum)</p>
-            <p class="FeedBackCardDate RideHappyCardText">@Html.DisplayFor(Model=>item.DateofRide)</p>
+            <p class="FeedBackCardDate RideHappyCardText">@Html.DisplayFor(Model => item.DateofRide)</p>
             <p class="FeedBackCardTime RideHappyCardText">@Url.Content(item.TimeofRide.ToString())</p>
 
             <p class="FeedBackCardFirstName RideHappyCardText">@Url.Content(item.Customers.FirstName)</p>
@@ -28,7 +45,7 @@
             <p class="FeedBackCardEmail RideHappyCardText">@Url.Content(User.Identity.Name)</p>
         </div>
 
-
+    </div>
 
     }
 </div>

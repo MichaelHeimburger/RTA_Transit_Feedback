@@ -1,6 +1,6 @@
 ﻿
 .bodybg {
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-color: whtie;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -51,7 +51,7 @@ nav a {
 
 }
 .text {
-    margin-right:1200px;
+    margin-right:600px;
     margin-bottom:100px
 }
 .text p {
@@ -66,8 +66,9 @@ nav a {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    height:60px;
-    margin-top:50px;
+    height: 60px;
+    box-shadow: 2px 2px 20px black;
+    margin-top: 50px;
 }
 .button:hover{
     box-shadow: inset 0px 0px 5px 5px white;
@@ -76,17 +77,27 @@ a:hover{
     text-decoration:none;
     color:inherit;
 }
-.indexrowtwo{
-    height:30vw;
+.indexrowtwo {
+    background-color: #4CAF50;
+    height: 300px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -1px 20px black;
 }
+    .indexrowtwo p {
+        margin-left: 100px;
+        margin-right: 100px;
+        color: whitesmoke;
+        text-shadow: -1px -1px 9px black;
+        font-weight:700;
+    }
 .indexrowthree{
-    height:40vw;
+    height:400px;
 }
 .indexrowthreecolone{
-    background-color:green;
 }
 .indexrowthreecoltwo{
-    background-color:white;
 }
 
 
@@ -103,29 +114,10 @@ a:hover{
    color:red
 }
 /*------------------Feedback Index For Customers-------------------*/
-.rolodex{
-    display:inline-flex;
-    /*align-items:flex-end;*/
-    flex-wrap:wrap;
-    /*justify-content:flex-end;
-    align-content:flex-start;*/
-}
-/*.feedbackdescriptionc{
-    grid-column:2 /span 2;
-    grid-row: 2/span 1;
-    overflow-wrap:break-word;
-    line-height:25px;
-}*/
-.cardindex {
-    background-image: url('../images/RideHappy.jpg');
-    height: 400px;
-    min-width:250px;
-    max-width:250px;
-    display: grid;
-    background-size:contain;
-    grid-template-columns: 1fr 10fr 10fr 1fr;
-    grid-template-rows: 2.5fr 3.5fr .8fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
-margin:.5vw;
+.rolodex {
+    display: inline-flex;
+    flex-wrap: wrap;
+    z-index: -5;
 }
 .indexcard{
     overflow:hidden;

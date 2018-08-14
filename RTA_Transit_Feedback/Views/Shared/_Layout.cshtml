@@ -35,19 +35,12 @@
                 </ul>
                 @Html.Partial("_LoginPartial")
                 <span class="navbar-text">
-                    @*Navbar text with an inline element*@
                 </span>
             </div>
         </nav>
-    @*<div class="undernavdiv"></div>*@
         <div class="container-fluid body-content">
             @RenderBody()
-            @*<hr />*@
-            @*<footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
         </div>
-
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
