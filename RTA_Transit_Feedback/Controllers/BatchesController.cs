@@ -29,7 +29,7 @@ namespace RTA_Transit_Feedback.Controllers
         {
            if(User.IsInRole("Admin"))
             {
-                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).ToList();
+                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).OrderByDescending(p => p.BatchID).ToList();
                 return new ViewAsPdf("PrintBatch", batchedList)
                 {
                     PageOrientation = Orientation.Portrait,
@@ -59,6 +59,12 @@ namespace RTA_Transit_Feedback.Controllers
             }
             return View(batch);
         }
+
+        //public ActionResult BatchCount()
+        //{
+        //    var feedBackForms = (from a in db.FeedBackForm where a.BatchID == a.BatchID select a).OrderByDescending(p => p.BatchID).ToList();
+        //    return View();
+        //}
 
         //// GET: Batches/Create
         //public ActionResult Create()
