@@ -112,12 +112,12 @@ background-color: grey!important;
     /*justify-content:flex-end;
     align-content:flex-start;*/
 }
-.feedbackdescriptionc{
+/*.feedbackdescriptionc{
     grid-column:2 /span 2;
     grid-row: 2/span 1;
     overflow-wrap:break-word;
     line-height:25px;
-}
+}*/
 .cardindex {
     background-image: url('../images/RideHappy.jpg');
     height: 400px;
