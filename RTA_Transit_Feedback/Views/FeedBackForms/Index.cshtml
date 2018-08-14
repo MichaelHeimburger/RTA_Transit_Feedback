@@ -79,7 +79,12 @@
                         @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
                     </div>
                 </div>
-                @Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID }) |
+                <div class="col">
+                    <div class="btn-group">
+                        <button>@Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID })</button>
+                    </div>
+                </div>
+                
             </div>
 
         }
@@ -107,7 +112,11 @@
                         @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
                     </div>
                 </div>
-                @Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID }) |
+                <div class="col">
+                    <div class="btn-group">
+                        <button>@Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID })</button>
+                    </div>
+                </div>
             </div>
             colorswap = false;
         }

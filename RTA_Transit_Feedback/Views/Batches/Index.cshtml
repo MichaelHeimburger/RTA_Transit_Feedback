@@ -45,10 +45,11 @@
                     <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
                 </class>
                 <div class="col">
-                    @Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
-                    @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
+                    <div class="btn-group">
+                        <button>@Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID })</button>
+                        <button>@Html.ActionLink("Details", "Details", new { id = item.BatchID })</button>
+                        <button>@Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })</button>
+                    </div>
                 </div>
             </div>
 
@@ -67,10 +68,11 @@
                     <a href='@String.Format("https://tools.usps.com/go/TrackConfirmAction?tLabels={0}", @Html.DisplayFor(modelItem => item.TrackingNo))' target="_blank">@Html.DisplayFor(modelItem => item.TrackingNo)</a>
                 </class>
                 <div class="col">
-                    @Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BatchID }) |
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BatchID }) |*@
-                    @Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })
+                    <div class="btn-group">
+                        <button>@Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID })</button>
+                        <button>@Html.ActionLink("Details", "Details", new { id = item.BatchID })</button>
+                        <button>@Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })</button>
+                    </div>
                 </div>
             </div>
         }
