@@ -7,9 +7,7 @@
 
 <h2>Account Information</h2>
 
-<h2>Create</h2>
-
-
+<p>We need some information to get started.</p>
 
 @using (Html.BeginForm())
 {
@@ -22,7 +20,7 @@
         <div oninput="FirstNameForm()" class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control FirstNameInput" } })
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control FirstNameInput", placeholder = "Tom" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -30,7 +28,7 @@
         <div class="form-group" oninput="LastNameForm()">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control LastNameInput" } })
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control LastNameInput" , placeholder = "Johnson" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" oninput="AddressOneForm()">
-                @Html.EditorFor(model => model.AddressL1, new { htmlAttributes = new { @class = "form-control AddressOneInput" } })
+                @Html.EditorFor(model => model.AddressL1, new { htmlAttributes = new { @class = "form-control AddressOneInput", placeholder = "200 Public Square" } })
                 @Html.ValidationMessageFor(model => model.AddressL1, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -46,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AddressL2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" oninput="AddressTwoForm()">
-                @Html.EditorFor(model => model.AddressL2, new { htmlAttributes = new { @class = "form-control AddressTwoInput" } })
+                @Html.EditorFor(model => model.AddressL2, new { htmlAttributes = new { @class = "form-control AddressTwoInput", placeholder = "Apt 2803" } })
                 @Html.ValidationMessageFor(model => model.AddressL2, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" oninput="CityForm()">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control CityInput" } })
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control CityInput", placeholder = "Anytown" } })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" oninput="PhoneForm()">
-                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control PhoneInput" } })
+                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control PhoneInput", placeholder = "2165551212" } })
                 @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,7 +78,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" oninput="ZipForm()">
-                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control ZipInput" } })
+                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control ZipInput", placeholder = "44101" } })
                 @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -38,10 +38,14 @@ namespace RTA_Transit_Feedback
         public Nullable<int> stateID { get; set; }
         [Required]
         [DisplayName("Phone Number")]
+        [MaxLength(10, ErrorMessage = "Please enter your phone number as a series of 10 digits without other characters.")]
+        [MinLength(10, ErrorMessage = "That wasn't enough digits. Please enter your phone number as a series of 10 digits without other characters.")]
         public string PhoneNum { get; set; }
         public string Id { get; set; }
         [Required]
         [DisplayName("ZIP Code")]
+        [MaxLength(5, ErrorMessage = "Please enter your five digit ZIP code.")]
+        [MinLength(5, ErrorMessage = "That wasn't enough dights. Please enter your five digit ZIP code.")]
         public string Zip { get; set; }
 
     }

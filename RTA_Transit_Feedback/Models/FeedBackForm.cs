@@ -29,7 +29,7 @@ namespace RTA_Transit_Feedback
         [DisplayName("Date of Ride")]
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public Nullable<System.DateTime> DateofRide { get; set; }
-        //[Required]
+        [Required]
         [DisplayName("Time of Ride")]
         public Nullable<System.TimeSpan> TimeofRide { get; set; }
         [MaxLength(15, ErrorMessage = "Please enter a route name or number such as HealthLine, 1, 8, 26, Blue Line etc.")]
@@ -38,6 +38,7 @@ namespace RTA_Transit_Feedback
         public string RouteName { get; set; }
         [DisplayName("Vehicle Number")]
         [MaxLength(4, ErrorMessage = "Please enter the four-digit bus or train number.")]
+        [Required]
         public string VehNum { get; set; }
         public Nullable<int> CustomerID { get; set; }
         public Nullable<int> BatchID { get; set; }

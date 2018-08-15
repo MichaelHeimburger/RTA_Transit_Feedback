@@ -9,18 +9,19 @@
 
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col">
-            @Html.DisplayNameFor(model => model.BatchID)
-        </div>
-        <div class="col">
-            Feedback in Batch
-        </div>
-        <div class="col">
-            @Html.DisplayNameFor(model => model.TrackingNo)
-        </div>
-        <div class="col">
-            Batch Functions
+        <div class="row">
+            <div class="col">
+                @Html.DisplayNameFor(model => model.BatchID)
+            </div>
+            <div class="col">
+                Cards in Batch
+            </div>
+            <div class="col">
+                @Html.DisplayNameFor(model => model.TrackingNo)
+            </div>
+            <div class="col">
+                Batch Functions
+            </div>
         </div>
 
     </div>
@@ -47,7 +48,6 @@
                 <div class="col">
                     <div class="btn-group">
                         <button>@Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID })</button>
-                        <button>@Html.ActionLink("Details", "Details", new { id = item.BatchID })</button>
                         <button>@Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })</button>
                     </div>
                 </div>
@@ -70,7 +70,6 @@
                 <div class="col">
                     <div class="btn-group">
                         <button>@Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID })</button>
-                        <button>@Html.ActionLink("Details", "Details", new { id = item.BatchID })</button>
                         <button>@Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })</button>
                     </div>
                 </div>

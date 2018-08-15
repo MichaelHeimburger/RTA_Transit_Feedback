@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Select Feedbacks to Print</h2>
+<h2>Select Cards to Batch</h2>
 
 
 @using (Html.BeginForm())
@@ -27,7 +27,7 @@
         </div>
         <div class="col">
             <p>
-                Days since Submission
+                Days Since Ride
             </p>
         </div>
         <div class="col">
@@ -35,7 +35,8 @@
                 Batch
             </p>
         </div>
-    </div>
+            
+        </div>
     @{var colorswap = false;}
     @for (int i = 0; Model.Forms.Count > i; i++)
     {

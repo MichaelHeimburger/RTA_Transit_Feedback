@@ -161,20 +161,25 @@ a:hover {
 }
 /*------------------Feedback Index For Admins-------------------*/
 
-a{
-    color:white;
-}
+
+
 #feedbackList {
     color: red
 }
 #indexfeedbackcolor {
     background-color: #eee9e9 !important;
-    border-bottom:2px solid grey !important;
+    border-top: 2px solid grey !important;
 }
 
 #indexfeedbackcolortwo {
     background-color: #cdc9c9 !important;
+    border-top: 2px solid grey !important;
 }
+
+.btn-group a{
+    color: white;
+}
+
 
 .btn-group button {
     background-color: #4CAF50; /* Green background */
