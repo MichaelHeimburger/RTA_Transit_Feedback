@@ -2356,7 +2356,7 @@ fieldset:disabled a.btn {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    box-shadow: 2px 2px 20px black;
+    box-shadow: 2px 2px 10px black;
     border-radius: 0px;
 
 }
@@ -9060,5 +9060,8 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+
+
+
 }
 /*# sourceMappingURL=bootstrap.css.map */

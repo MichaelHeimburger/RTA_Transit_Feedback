@@ -30,6 +30,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.feedBackForm.DateofRide, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10" oninput="DateForm()">
+
+
             @Html.TextBoxFor(model => model.feedBackForm.DateofRide, new { type = "date", @class = "DateInput" })
             @Html.ValidationMessageFor(model => model.feedBackForm.DateofRide, "", new { @class = "text-danger" })
 
@@ -145,7 +147,10 @@
     }
     function DateForm() {
         var x = document.getElementsByClassName("DateInput")[0].value;
-        document.getElementsByClassName("FeedBackCardDate")[0].innerHTML = x;
+        var y = new Date(x);
+        var options = { year: 'numeric', month: 'short', day: 'numeric' };
+        var z = y.toLocaleDateString('en-GB', options);
+        document.getElementsByClassName("FeedBackCardDate")[0].innerHTML = z;
     }
     function TimeForm() {
         var x = document.getElementsByClassName("TimeInput")[0].value;

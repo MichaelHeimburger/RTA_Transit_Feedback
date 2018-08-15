@@ -15,7 +15,6 @@
 
 <div class="form-horizontal">
 
-    <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div oninput="FirstNameForm()" class="form-group">
         @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
