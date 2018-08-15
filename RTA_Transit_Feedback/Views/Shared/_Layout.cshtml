@@ -18,15 +18,15 @@
         @if (!(User.IsInRole("Admin")))
         {
             @Html.ActionLink("About", "Contact", "Home")
-            @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") @*//What you see, the action/page associated, controller name*@
+            @Html.ActionLink("Create a Card", "Create", "FeedbackForms") @*//What you see, the action/page associated, controller name*@
             if (!(User.Identity.Name == null))
             {
-                @Html.ActionLink("View previous cards", "Index", "FeedBackForms")}
+                @Html.ActionLink("View Previous Cards", "Index", "FeedBackForms")}
         }
 
         @if (User.IsInRole("Admin"))
         {
-            @Html.ActionLink("View Cards", "Index", "FeedBackForms")
+            @Html.ActionLink("Manage Cards", "Index", "FeedBackForms")
             @Html.ActionLink("Manage Batches", "Index", "Batches")
 
         }
