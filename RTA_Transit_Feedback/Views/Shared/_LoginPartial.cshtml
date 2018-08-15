@@ -3,20 +3,35 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-<ul class="nav navbar-nav navbar-right">
-    <li>
+        @*< class="nav navbar-nav navbar-right">*@
+
         @Html.ActionLink("Logged In as: " + User.Identity.GetUserName(), "ChangeInfo", "Manage")
-    </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-</ul>
+
+        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    @*<div class="nav navbar-nav navbar-right">*@
+    @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}
+
+@*<ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Logged In as: " + User.Identity.GetUserName(), "ChangeInfo", "Manage")
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
 }

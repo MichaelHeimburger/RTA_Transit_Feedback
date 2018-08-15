@@ -6,43 +6,66 @@
     <link href="~/Content/RideHappyCard.css" rel="stylesheet" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title Ride Happy Card Compiler</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="bodybg"></div>
-        <nav class="navbar navbar-light navbarheader">
-            <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    @if (!(User.IsInRole("Admin")))
-                    {
-                     <li> @Html.ActionLink("About", "Contact", "Home") </li >
-                    <li> @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") </li >@*//What you see, the action/page associated, controller name*@
-                    if (!(User.Identity.Name == null))
-                    { <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li> }
-                    }
+    @*start of new navbar*@
+    <div class="topnav" id="myTopnav">
+        <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
+        @if (!(User.IsInRole("Admin")))
+        {
+            @Html.ActionLink("About", "Contact", "Home")
+            @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") @*//What you see, the action/page associated, controller name*@
+            if (!(User.Identity.Name == null))
+            {
+                @Html.ActionLink("View previous cards", "Index", "FeedBackForms")}
+        }
 
-                    @if (User.IsInRole("Admin"))
-                    {<li>@Html.ActionLink("View Cards", "Index", "FeedBackForms")</li>
-                    <li>@Html.ActionLink("Manage Batches", "Index", "Batches")</li>}
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("View Cards", "Index", "FeedBackForms")
+            @Html.ActionLink("Manage Batches", "Index", "Batches")
 
-                </ul>
-                @Html.Partial("_LoginPartial")
-                <span class="navbar-text">
-                </span>
-            </div>
-        </nav>
-        <div class="container-fluid body-content">
-            @RenderBody()
-        </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+        }
+        @Html.Partial("_LoginPartial")
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </div>
+
+    @*<div style="padding-left:16px">
+            <h2>Responsive Topnav Example</h2>
+            <p>Resize the browser window to see how it works.</p>
+        </div>*@
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    @*end of new navbar*@
+
+
+    @*<div class="undernavdiv"></div>*@
+    <div class="container-fluid body-content">
+        @RenderBody()
+        @*<hr />*@
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>
