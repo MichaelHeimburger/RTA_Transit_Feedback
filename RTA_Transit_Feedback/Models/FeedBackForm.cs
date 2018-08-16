@@ -19,8 +19,8 @@ namespace RTA_Transit_Feedback
     public class FeedBackFormsmetaData
     {
         public int FeedbackID { get; set; }
-        [MinLength(15, ErrorMessage = "Your comment was too short. Please enter a comment of at least 15 characters, but less than 150 characters.")]
-        [MaxLength(150, ErrorMessage = "Your comment was too long. Please enter a comment of at least 15 characters, but less than 150 characters.")]
+        [MinLength(15, ErrorMessage = "Please enter a comment of at least 15 - 150 characters.")]
+        [MaxLength(150, ErrorMessage = "Please enter a comment of at least 15 - 150 characters.")]
         [DataType(DataType.MultilineText)]
         [Required]
         [DisplayName("Why weren't you happy?")]
@@ -32,7 +32,7 @@ namespace RTA_Transit_Feedback
         [Required]
         [DisplayName("Time of Ride")]
         public Nullable<System.TimeSpan> TimeofRide { get; set; }
-        [MaxLength(15, ErrorMessage = "Please enter a route name or number such as HealthLine, 1, 8, 26, Blue Line etc.")]
+        [MaxLength(15, ErrorMessage = "Please enter a route name or number.")]
         [Required]
         [DisplayName("Route Name/Number")]
         public string RouteName { get; set; }
