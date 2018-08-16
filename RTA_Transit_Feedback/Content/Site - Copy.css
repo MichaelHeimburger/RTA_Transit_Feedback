@@ -1,5 +1,5 @@
 
-.bodybg {
+﻿.bodybg {
     background-color: white;
     height: 100%;
     width: 100%;
@@ -27,20 +27,20 @@ textarea {
     max-width: 280px;
 }
 
-h1 {
-    color: black;
+h1{
+    color:black;
 }
 
-h2 {
-    color: black;
+h2{
+    color:black;
 }
 
-h3 {
-    color: black;
+h3{
+    color:black;
 }
 
-h4 {
-    color: black;
+h4{
+    color:black;
 }
 
 /*--------------------------------Navbar---------------------------*/
@@ -57,14 +57,13 @@ nav a {
 
 /*--------------------------------home index---------------------------*/
 .indexrowone {
-    height: 280px;
+    height: 700px;
     background-color: darkslateblue;
     background-image: url('../images/RTAAirport.jpg');
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-repeat: no-repeat;
-    background-position-y: -211px;
     background-size: cover;
 }
 
@@ -91,28 +90,25 @@ a:hover {
 }
 
 .indexrowtwo {
-    /* background-color: #4CAF50; */
-    height: 281px;
+    background-color: #4CAF50;
+    height: 300px;
     font-size: 20px;
-    background-image: linear-gradient(#4CAF50, black);
     justify-content: center;
     align-items: center;
     box-shadow: 0 -1px 20px black;
 }
 
     .indexrowtwo p {
-        margin-left: 457px;
-        margin-right: 51px;
-        margin-bottom: 74px;
+        margin-left: 100px;
+        margin-right: 100px;
         color: whitesmoke;
         text-shadow: -1px -1px 9px black;
         font-weight: 700;
-        margin-top: 20px;
     }
 
 .indexrowthree {
     background-color: black;
-    height: 41px;
+    height: 40px;
 }
 
 .indexrowthreecolone {
@@ -170,7 +166,6 @@ a:hover {
 #feedbackList {
     color: red
 }
-
 #indexfeedbackcolor {
     background-color: #eee9e9 !important;
     border-top: 2px solid grey !important;
@@ -181,7 +176,7 @@ a:hover {
     border-top: 2px solid grey !important;
 }
 
-.btn-group a {
+.btn-group a{
     color: white;
 }
 
@@ -191,6 +186,7 @@ a:hover {
     border: 1px solid green; /* Green border */
     color: white; /* White text */
     text-decoration: none;
+    
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
@@ -198,6 +194,7 @@ a:hover {
     0 -1px 1px #666, /*top external shadow*/
     inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
     inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+
 }
 
     .btn-group button:not(:last-child) {
@@ -209,8 +206,8 @@ a:hover {
     content: "";
     clear: both;
     display: table;
-    color: white;
-    text-decoration-color: none;
+    color:white;
+    text-decoration-color:none;
 }
 
 /* Add a background color on hover */
@@ -222,6 +219,7 @@ a:hover {
     display: inline-flex;
     flex-wrap: wrap;
     z-index: -5;
+
 }
 
 .indexcard {
@@ -239,14 +237,13 @@ a:hover {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 27px;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 32px 35px;
+    margin: 4px 2px;
     cursor: pointer;
-    margin-left: 438px;
 }
 
 .button1 {
@@ -327,4 +324,5 @@ a:hover {
             display: block;
             text-align: left;
         }
+
 }

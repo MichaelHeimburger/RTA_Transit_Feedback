@@ -1,8 +1,8 @@
 ﻿.RideHappyCardText {
-    margin-left: 30px;
+    margin-left: 39px;
     margin-top: 7px;
-    font-size: 15px;
-    font-weight: 100;
+    font-size: 13px;
+    font-weight: 800;
     line-height: 26px;
 }
 
@@ -21,6 +21,7 @@
     z-index: 2;
     left: 105px;
     box-shadow: 9px 9px 15px black;
+    top: 87px;
 }
 
 .IndexForm {
@@ -63,9 +64,9 @@
 .FeedBackCardAddressOne {
     grid-column: 2 /span 2;
     grid-row: 7 /span 1;
-    margin-left: 10PX;
-    transform: scale(.7,1);
-    font-weight: 400;
+    margin-left: 45PX;
+    /* transform: scale(.7,1); */
+    /* font-weight: 800; */
 }
 
 .FeedBackCardAddressTwo {
@@ -86,13 +87,14 @@
 
 .FeedBackCardPhone {
     grid-column: 2 /span 1;
+    margin-left: 35px;
     grid-row: 10 /span 1;
 }
 
 .FeedBackCardZip {
     grid-column: 3 /span 1;
     grid-row: 9 /span 1;
-    margin-left: 60px;
+    margin-left: 53px;
 }
 
 .FeedBackCardEmail {
@@ -113,23 +115,23 @@
 .FeedBackCardRouteName {
     grid-row: 4 /span 1;
     grid-column: 2 /span 3;
-    margin-left: 105px;
+    margin-left: 149px;
 }
 
 .FeedBackCardVehicle {
     grid-row: 5 /span 1;
     grid-column: 2/span 2;
-    margin-left: 90px;
+    margin-left: 162px;
 }
 
 .FeedBackCardDate {
     grid-column: 2 /span 2;
     grid-row: 3 /span 2;
-    margin-left: 64px;
+    margin-left: 59px;
 }
 
 .FeedBackCardTime {
     grid-column: 3/span 2;
     grid-row: 3 /span 1;
-    margin-left: 81px;
+    margin-left: 76px;
 }
