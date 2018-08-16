@@ -52,17 +52,47 @@
 
 </div>
 <style>
+    .indexscrollone {
+        margin-left: 500px;
+        display: inline-block;
+        color: white;
+        position: relative;
+        font-size: 60px;
+        white-space: nowrap;
+        top: 0;
+        left: 0;
+        animation: move 9s;
+        animation-iteration-count: infinite;
+        animation-delay: 2s;
+    }
+
+    .hider {
+        float: left;
+        overflow: hidden;
+        position: relative;
+        height: 70px;
+    }
+</style>
+
+
+
+
+
+
+<style>
     .indexscrolltwo {
         margin-top: -3px;
         display: inline-block;
         position: relative;
         font-size: 18px;
+        font-weight: 800;
         white-space: nowrap;
         top: 0;
         left: 0;
         animation: movetwo 9s;
         animation-iteration-count: infinite;
         animation-delay: 2s;
+        transform: scale(.7,1);
     }
 
     .hidertwo {
@@ -72,28 +102,35 @@
         height: 25px;
     }
 
+    .FeedBackCardDescription {
+        float: left;
+        overflow: hidden;
+        position: relative;
+        left: -26px;
+    }
+
     .FeedBackCardVehicle {
         margin-top: 2px;
-        margin-left: 50px;
+        margin-left: 48px;
     }
 
     .FeedBackCardRouteName {
-        margin-left: 50px;
+        margin-left: 46px;
         margin-top: 2px;
     }
 
     .FeedBackCardDate {
-        margin-left: 30px;
+        margin-left: 24px;
         margin-top: 2px;
     }
 
     .FeedBackCardTime {
-        margin-left: 30px;
+        margin-left: 26px;
         margin-top: 2px;
     }
 
     .FeedBackCardFirstName {
-        margin-left: 15px;
+        margin-left: 17px;
         margin-top: 2px;
     }
 
@@ -103,8 +140,9 @@
     }
 
     .FeedBackCardAddressOne {
-        margin-left: -10px;
+        margin-left: 2px;
         margin-top: 2px;
+        transform: scale(.8,1);
     }
 
     .FeedBackCardAddressTwo {
@@ -118,41 +156,41 @@
     }
 
     .FeedBackCardState {
-        margin-left: 15px;
+        margin-left: 10px;
+        margin-top: 3px;
     }
 
     .FeedBackCardEmail {
-        margin-left: -5px;
+        margin-left: -3px;
         margin-top: 2px;
     }
 
     .FeedBackCardPhone {
-        margin-left: 15px;
+        margin-left: 10px;
         margin-top: 1px;
-        transform: scale(.9,1);
     }
 
     .FeedBackCardZip {
         margin-left: 15px;
-        margin-top: 2px;
+        margin-top: 3px;
     }
 </style>
 <div class="formDisplay HomeCard">
     <img src="~/images/RideHappy.jpg" />
     <div class="hidertwo FeedBackCardDescription ">
         <div class="FeedBackCardDescription RideHappyCardText indexscrolltwo">
-            My train arrived late! <br />
-            My ride was too bumpy.<br />
-            Air conditioning wasn't working.<br />
-            Bike didn't fit on rack.<br />
+            My train was delayed by 9 minutes. <br />
+            No suspension on bus. <br />
+            Air conditioning wasn't working. <br />
+            Bike didn't fit on bus. <br />
         </div>
     </div>
     <div class="hidertwo FeedBackCardRouteName">
         <div class="FeedBackCardRouteName RideHappyCardText indexscrolltwo">
-            51<br />
+            Red Line <br />
             64 <br />
-            13B <br />
-            RedLine <br />
+            51B <br />
+            HealthLine <br />
         </div>
     </div>
     <div class="hidertwo FeedBackCardVehicle">
@@ -174,27 +212,27 @@
     <div class="hidertwo FeedBackCardTime">
         <div class="FeedBackCardTime RideHappyCardText indexscrolltwo">
             7:30 AM<br />
-            6:40 PM <br />
-            12:20 PM <br />
+            6:40 PM<br />
+            12:20 PM<br />
             10:21 AM<br />
         </div>
     </div>
     <div class="hidertwo FeedBackCardFirstName">
         <div class="FeedBackCardFirstName RideHappyCardText indexscrolltwo">
-            Davey <br />
-            John <br />
-            Lorem<br />
-            Rick <br />
+            Tina Hanscom<br />
+            Mike Samith<br />
+            Lisa Murano<br />
+            Rick Steves<br />
         </div>
     </div>
-    <div class="hidertwo FeedBackCardLastName">
+    @*<div class="hidertwo FeedBackCardLastName">
         <div class="FeedBackCardLastName RideHappyCardText indexscrolltwo">
             Jones <br />
             Doe <br />
             Ipsum <br />
             Steve <br />
         </div>
-    </div>
+    </div>*@
     <div class="hidertwo FeedBackCardAddressOne">
         <div class="FeedBackCardAddressOne RideHappyCardText indexscrolltwo">
             56 South Locker Ln<br />
@@ -245,10 +283,10 @@
     </div>
     <div class="hidertwo FeedBackCardEmail">
         <div class="FeedBackCardEmail RideHappyCardPhone indexscrolltwo">
-            flyingdutchman@ships.com<br />
-            tractorfan2012@yahoo.com <br />
-            Dolarset@aol.com <br />
-            franklarrytom@gmail.com<br />
+            flygal@ships.com<br />
+            tract@yahoo.com <br />
+            Dolaret@aol.com <br />
+            franom@gmail.com<br />
         </div>
     </div>
 </div>
