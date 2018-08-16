@@ -70,6 +70,9 @@
                 <div class="col">
                     <div class="btn-group">
                         <button>@Html.ActionLink("Add Tracking Number", "Edit", new { id = item.BatchID })</button>
+                        <div class="tooltip"> Stuff?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </div>
                         <button>@Html.ActionLink("Details", "Details", new { id = item.BatchID })</button>
                         <button>@Html.ActionLink("Print Batch", "PrintBatchAction", new { id = item.BatchID }, new { target = "_blank" })</button>
                     </div>

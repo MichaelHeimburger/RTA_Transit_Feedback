@@ -13,36 +13,38 @@
 </head>
 <body>
     <div class="bodybg"></div>
-        <nav class="navbar navbar-light navbarheader">
-            <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    @if (!(User.IsInRole("Admin")))
-                    {
-                     <li> @Html.ActionLink("About", "Contact", "Home") </li >
-                    <li> @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") </li >@*//What you see, the action/page associated, controller name*@
+    <nav class="navbar navbar-light navbarheader">
+        <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                @if (!(User.IsInRole("Admin")))
+                {
+                    <li> @Html.ActionLink("About", "Contact", "Home") </li>
+                    <li> @Html.ActionLink("Create a new Ride Happy card", "Create", "FeedbackForms") </li>@*//What you see, the action/page associated, controller name*@
                     if (!(User.Identity.Name == null))
-                    { <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li> }
-                    }
+                    {
+                        <li>@Html.ActionLink("View previous cards", "Index", "FeedBackForms")</li>}
+                }
 
-                    @if (User.IsInRole("Admin"))
-                    {<li>@Html.ActionLink("View Cards", "Index", "FeedBackForms")</li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("View Cards", "Index", "FeedBackForms")</li>
                     <li>@Html.ActionLink("Manage Batches", "Index", "Batches")</li>}
 
-                </ul>
-                @Html.Partial("_LoginPartial")
-                <span class="navbar-text">
-                </span>
-            </div>
-        </nav>
-        <div class="container-fluid body-content">
-            @RenderBody()
+            </ul>
+            @Html.Partial("_LoginPartial")
+            <span class="navbar-text">
+            </span>
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+    </nav>
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

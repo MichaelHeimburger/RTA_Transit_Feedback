@@ -157,8 +157,13 @@ a{
 .btn-group button:hover {
     background-color: #3e8e41;
 }
-/*------------------Feedback Index For Customers-------------------*/
-.rolodex {
+
+
+/*--------------------------------------------------Tootltip stuff------------------------------------*/
+
+
+    /*------------------Feedback Index For Customers-------------------*/
+    .rolodex {
     display: inline-flex;
     flex-wrap: wrap;
     z-index: -5;

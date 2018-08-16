@@ -21,7 +21,9 @@ namespace RTA_Transit_Feedback.Controllers
         {
             if(User.IsInRole("Admin"))
             {
-            return View(db.Batch.ToList());
+                var batchedList = db.Batch.ToList().OrderByDescending(x => x.BatchID).ToList();
+                
+            return View(batchedList);
             }
             return RedirectToAction("Index", "Home");
         }
@@ -29,7 +31,8 @@ namespace RTA_Transit_Feedback.Controllers
         {
            if(User.IsInRole("Admin"))
             {
-                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).OrderByDescending(p => p.BatchID).ToList();
+                var batchedList = (from a in db.FeedBackForm where a.BatchID == id select a).ToList();
+
                 return new ViewAsPdf("PrintBatch", batchedList)
                 {
                     PageOrientation = Orientation.Portrait,
