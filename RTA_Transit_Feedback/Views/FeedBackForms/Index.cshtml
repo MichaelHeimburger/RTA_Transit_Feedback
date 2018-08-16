@@ -10,33 +10,39 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+        
 <div class="container-fluid">
     <hr />
     <div class="form-group">
         <div class="col-md-10">
-            <p>Batch All:    @Html.EditorFor(model => model.BatchAll)</p>
+            <h4>Batch All:    @Html.EditorFor(model => model.BatchAll)</h4>
             @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <p>
+        <div class="col" >
+            <h4>
                 Date of Ride
-            </p>
+            </h4>
         </div>
-        <div class="col">
-            <p>
+        <div class="col col-center">
+            <h4>
                 Days Since Ride
-            </p>
+            </h4>
         </div>
-        <div class="col">
-            <p>
+        <div class="col col-right">
+            <h4 style="padding-right: 80px;">
                 Batch
-            </p>
+            </h4>
         </div>
-            
+
+        <div class="col col-center">
+            <h4 style="padding-left: 174px;">
+                Print
+            </h4>
         </div>
+
+    </div>
     @{var colorswap = false;}
     @for (int i = 0; Model.Forms.Count > i; i++)
     {
@@ -62,7 +68,7 @@
                 <div class="col">
                     <p>@Html.DisplayFor(model => Model.Forms[i].DateofRide)</p>
                 </div>
-                <div class="col">
+                <div class="col col-left">
                     @*Changes bool for at risk feedback*@
                     @if (Model.Forms[i].isDanger == true)
                     {
@@ -80,7 +86,7 @@
                         @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-right">
                     <div class="btn-group">
                         <button>@Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID })</button>
                     </div>
@@ -95,7 +101,7 @@
                 <div class="col">
                     <p>@Html.DisplayFor(model => Model.Forms[i].DateofRide)</p>
                 </div>
-                <div class="col">
+                <div class="col col-left">
                     @*Changes bool for at risk feedback*@
                     @if (Model.Forms[i].isDanger == true)
                     {
@@ -113,7 +119,7 @@
                         @*@Html.ValidationMessageFor(model => model.Forms[i].toBatch, new { htmlAttributes = new { @class = "form-control" } })*@
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-right">
                     <div class="btn-group">
                         <button>@Html.ActionLink("Print to PDF", "RideHappyOutput", new { id = Model.Forms[i].FeedbackID })</button>
                     </div>
@@ -134,3 +140,19 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+
+    .col-center{
+        text-align: center;
+    }
+
+    .col-left {
+        text-align: left;
+    }
+
+    .col-right {
+        text-align: right;
+    }
+
+</style>

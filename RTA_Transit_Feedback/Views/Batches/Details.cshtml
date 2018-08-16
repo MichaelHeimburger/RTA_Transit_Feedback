@@ -1,26 +1,53 @@
 ﻿@model RTA_Transit_Feedback.Batch
 
 @{
-    ViewBag.Title = "Details";
+                /**/
+
+                ViewBag.Title = "Details";
+}
+<h2 style="margin-bottom:60px;">Cards Included in Batch @Html.DisplayFor(Model => Model.BatchID)</h2>
+<div class="row">
+    <h4 class="col-4">Date of Ride</h4>
+    <h4 class="col-4">Rider Last Name</h4>
+    <h4 class="col-4">Print Individual</h4>
+</div>
+<hr />
+@foreach (FeedBackForm a in Model.FeedBackForm)
+{
+    <div class="row divswapstyle">
+        <div class="col-4">@Url.Content(a.DateofRide.ToString())</div>
+        <div class="col-4">@Url.Content(a.Customers.LastName)</div>
+        <div class="col-4">
+            <div class="btn-group">
+                <button>@Html.ActionLink("Print to PDF", "RideHappyOutput", "FeedBackForms", new { id = a.FeedbackID }, null)</button>
+            </div>
+        </div>
+    </div>
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Batch</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TrackingNo)
-        </dt>
+<script>
+    var a = document.getElementsByClassName("divswapstyle").length;
+        for (i = 0; i < a; i++) {
+            if (i % 2 == 0) {
+                document.getElementsByClassName("divswapstyle")[i].classList.add("indexfeedbackcolortwo");
+            }
+            else {
+                document.getElementsByClassName("divswapstyle")[i].classList.add("indexfeedbackcolor");
+            }
+        }
+</script>
 
-        <dd>
-            @Html.DisplayFor(model => model.TrackingNo)
-        </dd>
-            
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BatchID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<style>
+    .indexfeedbackcolor {
+        background-color: #eee9e9 !important;
+        border-top: 2px solid grey !important;
+    }
+
+    .indexfeedbackcolortwo {
+        background-color: #cdc9c9 !important;
+        border-top: 2px solid grey !important;
+    }
+</style>
+
+
