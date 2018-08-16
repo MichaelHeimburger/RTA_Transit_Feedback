@@ -249,7 +249,6 @@
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\FeedBackCreateViewModel.cs" />
     <Compile Include="Models\FeedBackForm.cs" />
-    <Compile Include="Models\FeedBackForm validation.cs" />
     <Compile Include="Models\FeedBackRelayViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
