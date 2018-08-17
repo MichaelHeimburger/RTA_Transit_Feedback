@@ -13,11 +13,15 @@
 </head>
 <body>
     @*start of new navbar*@
+
     <div class="topnav" id="myTopnav">
         <a class="navbar-brand" href=@Url.Action("Index", "Home")>Ride Happy Card Complier</a>
+
+        @Html.Partial("_LoginPartial")
+
+
         @if (!(User.IsInRole("Admin")))
         {
-            @Html.ActionLink("About", "Contact", "Home")
             @Html.ActionLink("Create a Card", "Create", "FeedbackForms") @*//What you see, the action/page associated, controller name*@
             if (!(User.Identity.Name == null))
             {
@@ -30,42 +34,38 @@
             @Html.ActionLink("Manage Batches", "Index", "Batches")
 
         }
-        @Html.Partial("_LoginPartial")
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
 
     </div>
 
-    @*<div style="padding-left:16px">
-            <h2>Responsive Topnav Example</h2>
-            <p>Resize the browser window to see how it works.</p>
-        </div>*@
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
             }
-        }
-    </script>
-    @*end of new navbar*@
+        </script>
+        @*end of new navbar*@
 
 
-    @*<div class="undernavdiv"></div>*@
-    <div class="container-fluid body-content">
-        @RenderBody()
-        @*<hr />*@
-        @*<footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
-    </div>
+        @*<div class="undernavdiv"></div>*@
+        <div class="container-fluid body-content">
+            @RenderBody()
+            @*<hr />*@
+            @*<footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>*@
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

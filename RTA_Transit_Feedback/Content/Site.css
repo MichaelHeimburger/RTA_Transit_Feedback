@@ -47,38 +47,45 @@ h4 {
 nav a {
     font-family: 'Roboto', sans-serif;
     color: black;
+    float: right;
 }
 
-.navbar-brand {
-    font-family: 'Roboto', sans-serif;
-    color: black;
+
+
+
+.topnav a {
+    float: right;
 }
+
+
 
 
 /*--------------------------------home index---------------------------*/
 .indexrowone {
-    height: 280px;
+    height: 415px;
     background-color: darkslateblue;
-    background-image: url('../images/RTAAirport.jpg');
+    background-image: url(../images/RTAAirport.jpg);
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-repeat: no-repeat;
-    background-position-y: -211px;
+    background-position-y: -85px;
     background-size: cover;
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+
+
+    background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 13px 23px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    height: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 53px;
     box-shadow: 2px 2px 20px black;
-    margin-top: 50px;
 }
 
     .button:hover {
@@ -92,22 +99,22 @@ a:hover {
 
 .indexrowtwo {
     /* background-color: #4CAF50; */
-    height: 281px;
-    font-size: 20px;
+    height: 230px;
+    font-size: 17px;
     background-image: linear-gradient(#4CAF50, black);
     justify-content: center;
     align-items: center;
     box-shadow: 0 -1px 20px black;
-}
+}   
 
     .indexrowtwo p {
-        margin-left: 457px;
-        margin-right: 51px;
-        margin-bottom: 74px;
+        margin-left: 370px;
+        margin-right: 14px;
+        margin-bottom: 108px;
         color: whitesmoke;
         text-shadow: -1px -1px 9px black;
         font-weight: 700;
-        margin-top: 20px;
+        margin-top: 19px;
     }
 
 .indexrowthree {
@@ -157,7 +164,7 @@ a:hover {
     }
 }
 
-/*------------------Customer create styleing-------------------*/
+/*------------------Customer create styling-------------------*/
 
 
 .lead {
@@ -235,19 +242,7 @@ a:hover {
 
 /*Modal Styling*/
 
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 27px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 32px 35px;
-    cursor: pointer;
-    margin-left: 438px;
-}
+
 
 .button1 {
     border-radius: 2px;
@@ -273,17 +268,30 @@ a:hover {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-image: linear-gradient(to left, black, #4CAF50);
 }
 
+a.navbar-brand {
+    font-size: 18px;
+    font-weight: 600;
+    float: left;
+}
+
+    a.navbar-brand:hover {
+        background-image: linear-gradient(lightgreen, #4CAF50);
+    }
+
     .topnav a {
-        float: left;
         display: block;
         color: #f2f2f2;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+    }
+
+    .topnav li {
+        float: right;
     }
 
         .topnav a:hover {
@@ -299,6 +307,7 @@ a:hover {
 .topnav .icon {
     display: none;
 }
+
 
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {
