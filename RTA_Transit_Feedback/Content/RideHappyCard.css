@@ -98,11 +98,12 @@
 }
 
 .FeedBackCardEmail {
-    grid-column: 3/span 1;
+    grid-column: 3 /span 2;
     grid-row: 10/span1;
     margin-left: 10px;
-    transform: scale(.7,1);
+    transform: scale(.6,1);
 }
+
 
 .FeedBackCardDescription {
     grid-column: 1 /span 3;
