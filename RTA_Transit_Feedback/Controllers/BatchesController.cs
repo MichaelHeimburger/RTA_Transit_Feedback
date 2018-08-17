@@ -21,7 +21,8 @@ namespace RTA_Transit_Feedback.Controllers
         {
             if(User.IsInRole("Admin"))
             {
-            return View(db.Batch.ToList());
+                var batchedList = db.Batch.ToList().OrderByDescending(x => x.BatchID).ToList();
+                return View(batchedList);
             }
             return RedirectToAction("Index", "Home");
         }
